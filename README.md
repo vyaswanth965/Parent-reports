@@ -3,10 +3,14 @@ Technology: python, Multi processing, AWS redshift, AWS S3, HTML     Summary: Pr
 
 Sample reports
 
-![alt text](https://github.com/vyaswanth965/Parent-reports/Parent_reports_process/reports/1017842.pdf)
+![alt text](https://github.com/vyaswanth965/Parent-reports/Parent_reports_process/reports/Screenshot_287.png)
 
-![alt text](https://github.com/vyaswanth965/Parent-reports/Parent_reports_process/reports/1056340.pdf)
+![alt text](https://github.com/vyaswanth965/Parent-reports/Parent_reports_process/reports/Screenshot_288.png)
 
-![alt text](https://github.com/vyaswanth965/Parent-reports/Parent_reports_process/reports/1835945.pdf)
+![alt text](https://github.com/vyaswanth965/Parent-reports/Parent_reports_process/reports/Screenshot_289.png)
+![alt text](https://github.com/vyaswanth965/Parent-reports/Parent_reports_process/reports/Screenshot_290.png)
+![alt text](https://github.com/vyaswanth965/Parent-reports/Parent_reports_process/reports/Screenshot_291.png)
+![alt text](https://github.com/vyaswanth965/Parent-reports/Parent_reports_process/reports/Screenshot_292.png)
+![alt text](https://github.com/vyaswanth965/Parent-reports/Parent_reports_process/reports/Screenshot_293.png)
 
-![alt text](https://github.com/vyaswanth965/Parent-reports/Parent_reports_process/reports/Grade5_August_1144492.pdf)
+
