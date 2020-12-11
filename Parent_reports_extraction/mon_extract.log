@@ -1,0 +1,1563 @@
+2020-08-04 10:09:30 INFO 292: month  July
+2020-08-04 10:09:31 INFO 341: ['i-067f869315ad9ca0b']
+2020-08-04 10:19:42 INFO 292: month  July
+2020-08-04 10:19:43 INFO 341: ['i-0d9846ec865b4495b', 'i-00b1adf940c4e2b3e', 'i-074f463add3dd3762', 'i-0cef5cfb2ea4f8e40', 'i-0c60ad17dfcd6f006', 'i-00c556fb30d4991c3', 'i-0c5b294d403fac04a', 'i-09b001fe0bdf868b2']
+2020-08-04 10:21:43 INFO 58: SELECT distinct A.MS_userID
+    FROM educatio_educat.common_user_details A, mapping.user_management_mapping B,
+    educatio_adepts.adepts_registrationDetailsLog C WHERE A.id=B.oldID AND A.userName=C.username
+    AND enddate>'2020-07-01' AND category='STUDENT' AND subCategory='School'
+    AND A.MS_userID not in (SELECT MS_userID from educatio_educat.common_user_details where startDate > '2020-07-31')
+    AND (A.childEmail is not null or A.additionalEmail is not null or A.contactno_cel is not null)
+2020-08-04 10:21:45 INFO 73: SELECT distinct MS_userID
+    FROM educatio_educat.common_user_details
+    WHERE enddate>='2020-07-01'
+    AND category='STUDENT'
+    AND subCategory='Individual'
+    AND MS_userID not in (SELECT MS_userID from educatio_educat.common_user_details where startDate > '2020-07-31')
+    AND (childEmail is not null or additionalEmail is not null or contactno_cel is not null)
+2020-08-04 10:21:51 INFO 86: SELECT distinct MS_userID
+    FROM educatio_educat.common_user_details
+    WHERE enddate>='2020-07-01'
+    AND category='STUDENT'
+    AND subCategory='School'
+    AND MS_userID not in (SELECT MS_userID from educatio_educat.common_user_details where startDate > '2020-07-31')
+    AND (childEmail is not null or additionalEmail is not null or contactno_cel is not null)
+2020-08-04 10:22:14 INFO 97: select oldupid as upid,childname,oldschoolcode,class,gender,monthly_correct_ques,monthly_login_days,monthly_total_ques,monthly_accuracy,monthly_usage_time from msm_usage_monthly where calendar_month ='7' 
+    and upid in (select upid from userdetails_dim where category='STUDENT'and enabled in (1,0) and enddate>= '2020-07-01' and (parentemail is not null or contactno_cel is not null or childemail is not null)
+    and upid not in (select upid from userdetails_dim where category='STUDENT' and startdate > '2020-07-31') ) and oldschoolcode=4156961
+    
+2020-08-04 10:22:21 INFO 107: select oldupid as upid,class,contentid,contenttype,monthly_ques_attempts,progress_of_first_attempt,monthly_accuracy from msm_moduleprogress_monthly where calendar_month =7  
+    and upid in (select upid from userdetails_dim where category='STUDENT'and enabled in (1,0) and enddate>= '2020-07-01' and (parentemail is not null or contactno_cel is not null or childemail is not null)
+    and upid not in (select upid from userdetails_dim where category='STUDENT' and startdate > '2020-07-31') ) and oldschoolcode=4156961
+    
+2020-08-04 10:22:27 ERROR 496: extraction failed due to 
+Traceback (most recent call last):
+  File "/home/anaconda3/lib/python3.7/site-packages/pandas/io/sql.py", line 1595, in execute
+    cur.execute(*args)
+psycopg2.ProgrammingError: syntax error at or near ")"
+LINE 1: ...tentid,contentname from msm_topic_flow where contentid in ()
+                                                                      ^
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "mon_extraction3.py", line 344, in <module>
+    split_and_save(no_of_instances)
+  File "mon_extraction3.py", line 162, in split_and_save
+    topic_name = get_topic_names(contentids)
+  File "mon_extraction3.py", line 124, in get_topic_names
+    topic_name_1 = pd.read_sql(query,redshift)
+  File "/home/anaconda3/lib/python3.7/site-packages/pandas/io/sql.py", line 410, in read_sql
+    chunksize=chunksize,
+  File "/home/anaconda3/lib/python3.7/site-packages/pandas/io/sql.py", line 1645, in read_query
+    cursor = self.execute(*args)
+  File "/home/anaconda3/lib/python3.7/site-packages/pandas/io/sql.py", line 1610, in execute
+    raise_with_traceback(ex)
+  File "/home/anaconda3/lib/python3.7/site-packages/pandas/compat/__init__.py", line 47, in raise_with_traceback
+    raise exc.with_traceback(traceback)
+  File "/home/anaconda3/lib/python3.7/site-packages/pandas/io/sql.py", line 1595, in execute
+    cur.execute(*args)
+pandas.io.sql.DatabaseError: Execution failed on sql 'select  contentid,contentname from msm_topic_flow where contentid in ()': syntax error at or near ")"
+LINE 1: ...tentid,contentname from msm_topic_flow where contentid in ()
+                                                                      ^
+
+2020-08-04 10:27:59 INFO 299: month  July
+2020-08-04 10:28:01 INFO 348: ['i-0514c5a2763111a6e', 'i-08a057c1689662ff2', 'i-021311738977ce89f', 'i-0183d340e488d5c40', 'i-0360798a58a40170b', 'i-00fdbe816a689c64c', 'i-0c601785755185287', 'i-0bbe20a3e715d04ef']
+2020-08-04 10:30:01 INFO 58: SELECT distinct A.MS_userID
+    FROM educatio_educat.common_user_details A, mapping.user_management_mapping B,
+    educatio_adepts.adepts_registrationDetailsLog C WHERE A.id=B.oldID AND A.userName=C.username
+    AND enddate>'2020-07-01' AND category='STUDENT' AND subCategory='School'
+    AND A.MS_userID not in (SELECT MS_userID from educatio_educat.common_user_details where startDate > '2020-07-31')
+    AND (A.childEmail is not null or A.additionalEmail is not null or A.contactno_cel is not null)
+2020-08-04 10:30:01 INFO 73: SELECT distinct MS_userID
+    FROM educatio_educat.common_user_details
+    WHERE enddate>='2020-07-01'
+    AND category='STUDENT'
+    AND subCategory='Individual'
+    AND MS_userID not in (SELECT MS_userID from educatio_educat.common_user_details where startDate > '2020-07-31')
+    AND (childEmail is not null or additionalEmail is not null or contactno_cel is not null)
+2020-08-04 10:30:02 INFO 86: SELECT distinct MS_userID
+    FROM educatio_educat.common_user_details
+    WHERE enddate>='2020-07-01'
+    AND category='STUDENT'
+    AND subCategory='School'
+    AND MS_userID not in (SELECT MS_userID from educatio_educat.common_user_details where startDate > '2020-07-31')
+    AND (childEmail is not null or additionalEmail is not null or contactno_cel is not null)
+2020-08-04 10:30:08 INFO 97: select oldupid as upid,childname,oldschoolcode,class,gender,monthly_correct_ques,monthly_login_days,monthly_total_ques,monthly_accuracy,monthly_usage_time from msm_usage_monthly where calendar_month ='7' 
+    and upid in (select upid from userdetails_dim where category='STUDENT'and enabled in (1,0) and enddate>= '2020-07-01' and (parentemail is not null or contactno_cel is not null or childemail is not null)
+    and upid not in (select upid from userdetails_dim where category='STUDENT' and startdate > '2020-07-31') ) 
+    
+2020-08-04 10:30:19 INFO 107: select oldupid as upid,class,contentid,contenttype,monthly_ques_attempts,progress_of_first_attempt,monthly_accuracy from msm_moduleprogress_monthly where calendar_month =7  
+    and upid in (select upid from userdetails_dim where category='STUDENT'and enabled in (1,0) and enddate>= '2020-07-01' and (parentemail is not null or contactno_cel is not null or childemail is not null)
+    and upid not in (select upid from userdetails_dim where category='STUDENT' and startdate > '2020-07-31') ) 
+    
+2020-08-04 10:30:28 ERROR 503: extraction failed due to 
+Traceback (most recent call last):
+  File "/home/anaconda3/lib/python3.7/site-packages/pandas/io/sql.py", line 1595, in execute
+    cur.execute(*args)
+psycopg2.ProgrammingError: syntax error at or near ")"
+LINE 1: ...tentid,contentname from msm_topic_flow where contentid in ()
+                                                                      ^
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "mon_extraction3.py", line 351, in <module>
+    split_and_save(no_of_instances)
+  File "mon_extraction3.py", line 162, in split_and_save
+    topic_name = get_topic_names(contentids)
+  File "mon_extraction3.py", line 124, in get_topic_names
+    topic_name_1 = pd.read_sql(query,redshift)
+  File "/home/anaconda3/lib/python3.7/site-packages/pandas/io/sql.py", line 410, in read_sql
+    chunksize=chunksize,
+  File "/home/anaconda3/lib/python3.7/site-packages/pandas/io/sql.py", line 1645, in read_query
+    cursor = self.execute(*args)
+  File "/home/anaconda3/lib/python3.7/site-packages/pandas/io/sql.py", line 1610, in execute
+    raise_with_traceback(ex)
+  File "/home/anaconda3/lib/python3.7/site-packages/pandas/compat/__init__.py", line 47, in raise_with_traceback
+    raise exc.with_traceback(traceback)
+  File "/home/anaconda3/lib/python3.7/site-packages/pandas/io/sql.py", line 1595, in execute
+    cur.execute(*args)
+pandas.io.sql.DatabaseError: Execution failed on sql 'select  contentid,contentname from msm_topic_flow where contentid in ()': syntax error at or near ")"
+LINE 1: ...tentid,contentname from msm_topic_flow where contentid in ()
+                                                                      ^
+
+2020-08-04 10:58:46 INFO 299: month  July
+2020-08-04 10:58:47 INFO 348: ['i-027aa255e138e4bd2', 'i-05264cd4957133b06', 'i-0077f7ae92ab13753', 'i-0fead4935b584c58a', 'i-06cd0336b9a910639', 'i-003d2f810b5f9e1bd', 'i-0a11d1b8fc830e5cd', 'i-0d3f10c71662855a4']
+2020-08-04 11:00:47 INFO 58: SELECT distinct A.MS_userID
+    FROM educatio_educat.common_user_details A, mapping.user_management_mapping B,
+    educatio_adepts.adepts_registrationDetailsLog C WHERE A.id=B.oldID AND A.userName=C.username
+    AND enddate>'2020-07-01' AND category='STUDENT' AND subCategory='School'
+    AND A.MS_userID not in (SELECT MS_userID from educatio_educat.common_user_details where startDate > '2020-07-31')
+    AND (A.childEmail is not null or A.additionalEmail is not null or A.contactno_cel is not null)
+2020-08-04 11:00:52 INFO 73: SELECT distinct MS_userID
+    FROM educatio_educat.common_user_details
+    WHERE enddate>='2020-07-01'
+    AND category='STUDENT'
+    AND subCategory='Individual'
+    AND MS_userID not in (SELECT MS_userID from educatio_educat.common_user_details where startDate > '2020-07-31')
+    AND (childEmail is not null or additionalEmail is not null or contactno_cel is not null)
+2020-08-04 11:00:58 INFO 86: SELECT distinct MS_userID
+    FROM educatio_educat.common_user_details
+    WHERE enddate>='2020-07-01'
+    AND category='STUDENT'
+    AND subCategory='School'
+    AND MS_userID not in (SELECT MS_userID from educatio_educat.common_user_details where startDate > '2020-07-31')
+    AND (childEmail is not null or additionalEmail is not null or contactno_cel is not null)
+2020-08-04 11:01:22 INFO 97: select oldupid as upid,childname,oldschoolcode,class,gender,monthly_correct_ques,monthly_login_days,monthly_total_ques,monthly_accuracy,monthly_usage_time from msm_usage_monthly where calendar_month ='7' 
+    and upid in (select upid from userdetails_dim where category='STUDENT'and enabled in (1,0) and enddate>= '2020-07-01' and (parentemail is not null or contactno_cel is not null or childemail is not null)
+    and upid not in (select upid from userdetails_dim where category='STUDENT' and startdate > '2020-07-31') ) 
+    
+2020-08-04 11:01:24 INFO 107: select oldupid as upid,class,contentid,contenttype,monthly_ques_attempts,progress_of_first_attempt,monthly_accuracy from msm_moduleprogress_monthly where calendar_month =7  
+    and upid in (select upid from userdetails_dim where category='STUDENT'and enabled in (1,0) and enddate>= '2020-07-01' and (parentemail is not null or contactno_cel is not null or childemail is not null)
+    and upid not in (select upid from userdetails_dim where category='STUDENT' and startdate > '2020-07-31') ) 
+    
+2020-08-04 11:01:32 INFO 117: select old_upid as upid,class,contentid,contentattemptnumber,mapped_ttid,accuracy from msm_moduleprogress_attemptid where ((startdate>='2020-07-01' and startdate <='2020-07-31') or (enddate>='2020-07-01' and enddate <='2020-07-31')) and  contenttype='concept'   
+    and upid in (select upid from userdetails_dim where category='STUDENT'and enabled in (1,0) and enddate>= '2020-07-01' and (parentemail is not null or contactno_cel is not null or childemail is not null)
+    and upid not in (select upid from userdetails_dim where category='STUDENT' and startdate > '2020-07-31') ) 
+    
+2020-08-04 11:02:45 INFO 195: Total students 132746
+2020-08-04 11:02:45 INFO 196: Distinct student and class count 133281
+2020-08-04 11:02:45 INFO 197: usage data length 133281
+2020-08-04 11:02:45 INFO 198: topics data length 178793
+2020-08-04 11:02:45 INFO 199: concepts data length 923217
+2020-08-04 11:02:45 INFO 201: b2b2c students 2075
+2020-08-04 11:02:45 INFO 202: b2c students 27979
+2020-08-04 11:02:45 INFO 203: b2b students 224103 (not processing now)
+2020-08-04 11:02:45 INFO 212: b2b2c distinct student and class count 2048
+2020-08-04 11:02:45 INFO 213: b2c distinct student and class count 27966
+2020-08-04 11:02:45 INFO 214: b2b distinct student and class count 103267 
+2020-08-04 11:02:45 INFO 216: no of splits 8
+2020-08-04 11:02:56 INFO 362: {'i-0077f7ae92ab13753': 'ec2-3-7-249-126.ap-south-1.compute.amazonaws.com', 'i-0d3f10c71662855a4': 'ec2-13-233-62-198.ap-south-1.compute.amazonaws.com', 'i-0fead4935b584c58a': 'ec2-3-7-54-76.ap-south-1.compute.amazonaws.com', 'i-06cd0336b9a910639': 'ec2-15-207-103-70.ap-south-1.compute.amazonaws.com', 'i-003d2f810b5f9e1bd': 'ec2-15-207-102-40.ap-south-1.compute.amazonaws.com', 'i-0a11d1b8fc830e5cd': 'ec2-52-66-234-84.ap-south-1.compute.amazonaws.com', 'i-027aa255e138e4bd2': 'ec2-52-66-227-172.ap-south-1.compute.amazonaws.com', 'i-05264cd4957133b06': 'ec2-15-207-105-147.ap-south-1.compute.amazonaws.com'}
+2020-08-04 11:03:05 INFO 417: no_usage b2b2c students 0
+2020-08-04 11:03:05 INFO 418: not_done b2b2c students 0
+2020-08-04 11:03:05 INFO 419: done b2b2c students 0
+2020-08-04 11:03:05 INFO 417: no_usage b2b students 0
+2020-08-04 11:03:05 INFO 418: not_done b2b students 0
+2020-08-04 11:03:05 INFO 419: done b2b students 0
+2020-08-04 11:03:05 INFO 417: no_usage b2c students 0
+2020-08-04 11:03:05 INFO 418: not_done b2c students 0
+2020-08-04 11:03:05 INFO 419: done b2c students 0
+2020-08-04 11:03:06 INFO 439: students 0
+2020-08-04 11:03:06 INFO 455: The whole thing took: 4.34 min
+2020-08-04 11:03:16 ERROR 503: extraction failed due to 
+Traceback (most recent call last):
+  File "/home/anaconda3/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1244, in _execute_context
+    cursor, statement, parameters, context
+  File "/home/anaconda3/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 550, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.InternalError: Spectrum Scan Error
+DETAIL:  
+  -----------------------------------------------
+  error:  Spectrum Scan Error
+  code:      15001
+  context:   File 'https://s3.ap-southeast-1.amazonaws.com/ei-marketingdata/parentReport_monthly_July/students.parquet  has an incompatible Parquet schema for column 's3://ei-marketingdata/parentReport_monthly_July/students.parquet.category'. Column type: VARCHAR, Parq
+  query:     1515913
+  location:  dory_util.cpp:939
+  process:   __padb__ [pid=2355]
+  -----------------------------------------------
+
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "mon_extraction3.py", line 497, in <module>
+    engine.execute(sql)
+  File "/home/anaconda3/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 2166, in execute
+    return connection.execute(statement, *multiparams, **params)
+  File "/home/anaconda3/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 982, in execute
+    return self._execute_text(object_, multiparams, params)
+  File "/home/anaconda3/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1155, in _execute_text
+    parameters,
+  File "/home/anaconda3/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1248, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/home/anaconda3/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1466, in _handle_dbapi_exception
+    util.raise_from_cause(sqlalchemy_exception, exc_info)
+  File "/home/anaconda3/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 399, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/home/anaconda3/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 153, in reraise
+    raise value.with_traceback(tb)
+  File "/home/anaconda3/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1244, in _execute_context
+    cursor, statement, parameters, context
+  File "/home/anaconda3/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 550, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.InternalError: (psycopg2.InternalError) Spectrum Scan Error
+DETAIL:  
+  -----------------------------------------------
+  error:  Spectrum Scan Error
+  code:      15001
+  context:   File 'https://s3.ap-southeast-1.amazonaws.com/ei-marketingdata/parentReport_monthly_July/students.parquet  has an incompatible Parquet schema for column 's3://ei-marketingdata/parentReport_monthly_July/students.parquet.category'. Column type: VARCHAR, Parq
+  query:     1515913
+  location:  dory_util.cpp:939
+  process:   __padb__ [pid=2355]
+  -----------------------------------------------
+
+
+[SQL: 
+
+    DROP TABLE IF EXISTS monthly_parent_report_logs_stg;
+
+    CREATE TABLE IF NOT EXISTS monthly_parent_report_logs_stg(
+    category VARCHAR(100),upid int8,class int8,
+    report_status VARCHAR(100),
+    month VARCHAR(100));
+
+
+    COPY  monthly_parent_report_logs_stg
+    FROM 's3://ei-marketingdata/parentReport_monthly_July/students.parquet'
+    IAM_ROLE 'arn:aws:iam::866998810058:role/myRedshiftRole'
+    Format as parquet;
+
+
+    CREATE TABLE IF NOT EXISTS monthly_parent_report_logs(
+    category VARCHAR(100),upid int8,class int8,
+    report_status VARCHAR(100),
+    month VARCHAR(100),
+    lastModified datetime default sysdate);
+
+    INSERT INTO "public"."monthly_parent_report_logs"
+    (SELECT category,upid,class,report_status,month
+    FROM "public"."monthly_parent_report_logs_stg");
+     
+    DROP TABLE IF EXISTS monthly_parent_report_logs_stg;
+
+    commit;
+    ]
+(Background on this error at: http://sqlalche.me/e/2j85)
+2020-08-04 11:10:25 INFO 299: month  July
+2020-08-04 11:10:27 INFO 348: ['i-0403ad0ad3ee765e8', 'i-025b65380671f899c', 'i-06b34b19966384af7', 'i-03e91694c54279103', 'i-0e2d58db6a9bde1be', 'i-01ebef1f19f95e298', 'i-04ffbfd67a1711f24', 'i-0fffc6cb3946bb114']
+2020-08-04 11:12:27 INFO 58: SELECT distinct A.MS_userID
+    FROM educatio_educat.common_user_details A, mapping.user_management_mapping B,
+    educatio_adepts.adepts_registrationDetailsLog C WHERE A.id=B.oldID AND A.userName=C.username
+    AND enddate>'2020-07-01' AND category='STUDENT' AND subCategory='School'
+    AND A.MS_userID not in (SELECT MS_userID from educatio_educat.common_user_details where startDate > '2020-07-31')
+    AND (A.childEmail is not null or A.additionalEmail is not null or A.contactno_cel is not null)
+2020-08-04 11:12:29 INFO 73: SELECT distinct MS_userID
+    FROM educatio_educat.common_user_details
+    WHERE enddate>='2020-07-01'
+    AND category='STUDENT'
+    AND subCategory='Individual'
+    AND MS_userID not in (SELECT MS_userID from educatio_educat.common_user_details where startDate > '2020-07-31')
+    AND (childEmail is not null or additionalEmail is not null or contactno_cel is not null)
+2020-08-04 11:12:32 INFO 86: SELECT distinct MS_userID
+    FROM educatio_educat.common_user_details
+    WHERE enddate>='2020-07-01'
+    AND category='STUDENT'
+    AND subCategory='School'
+    AND MS_userID not in (SELECT MS_userID from educatio_educat.common_user_details where startDate > '2020-07-31')
+    AND (childEmail is not null or additionalEmail is not null or contactno_cel is not null)
+2020-08-04 11:12:55 INFO 97: select oldupid as upid,childname,oldschoolcode,class,gender,monthly_correct_ques,monthly_login_days,monthly_total_ques,monthly_accuracy,monthly_usage_time from msm_usage_monthly where calendar_month ='7' 
+    and upid in (select upid from userdetails_dim where category='STUDENT'and enabled in (1,0) and enddate>= '2020-07-01' and (parentemail is not null or contactno_cel is not null or childemail is not null)
+    and upid not in (select upid from userdetails_dim where category='STUDENT' and startdate > '2020-07-31') ) 
+    
+2020-08-04 11:12:58 INFO 107: select oldupid as upid,class,contentid,contenttype,monthly_ques_attempts,progress_of_first_attempt,monthly_accuracy from msm_moduleprogress_monthly where calendar_month =7  
+    and upid in (select upid from userdetails_dim where category='STUDENT'and enabled in (1,0) and enddate>= '2020-07-01' and (parentemail is not null or contactno_cel is not null or childemail is not null)
+    and upid not in (select upid from userdetails_dim where category='STUDENT' and startdate > '2020-07-31') ) 
+    
+2020-08-04 11:13:03 INFO 117: select old_upid as upid,class,contentid,contentattemptnumber,mapped_ttid,accuracy from msm_moduleprogress_attemptid where ((startdate>='2020-07-01' and startdate <='2020-07-31') or (enddate>='2020-07-01' and enddate <='2020-07-31')) and  contenttype='concept'   
+    and upid in (select upid from userdetails_dim where category='STUDENT'and enabled in (1,0) and enddate>= '2020-07-01' and (parentemail is not null or contactno_cel is not null or childemail is not null)
+    and upid not in (select upid from userdetails_dim where category='STUDENT' and startdate > '2020-07-31') ) 
+    
+2020-08-04 11:14:13 INFO 195: Total students 132746
+2020-08-04 11:14:13 INFO 196: Distinct student and class count 133281
+2020-08-04 11:14:13 INFO 197: usage data length 133281
+2020-08-04 11:14:13 INFO 198: topics data length 178793
+2020-08-04 11:14:13 INFO 199: concepts data length 923217
+2020-08-04 11:14:13 INFO 201: b2b2c students 2075
+2020-08-04 11:14:13 INFO 202: b2c students 27979
+2020-08-04 11:14:13 INFO 203: b2b students 224103 (not processing now)
+2020-08-04 11:14:13 INFO 212: b2b2c distinct student and class count 2048
+2020-08-04 11:14:13 INFO 213: b2c distinct student and class count 27966
+2020-08-04 11:14:13 INFO 214: b2b distinct student and class count 103267 
+2020-08-04 11:14:13 INFO 216: no of splits 8
+2020-08-04 11:14:23 INFO 362: {'i-0fffc6cb3946bb114': 'ec2-3-7-74-203.ap-south-1.compute.amazonaws.com', 'i-01ebef1f19f95e298': 'ec2-13-235-55-151.ap-south-1.compute.amazonaws.com', 'i-03e91694c54279103': 'ec2-52-66-227-201.ap-south-1.compute.amazonaws.com', 'i-04ffbfd67a1711f24': 'ec2-3-7-37-189.ap-south-1.compute.amazonaws.com', 'i-0e2d58db6a9bde1be': 'ec2-52-66-223-52.ap-south-1.compute.amazonaws.com', 'i-06b34b19966384af7': 'ec2-13-235-210-175.ap-south-1.compute.amazonaws.com', 'i-025b65380671f899c': 'ec2-15-207-102-233.ap-south-1.compute.amazonaws.com', 'i-0403ad0ad3ee765e8': 'ec2-15-206-208-64.ap-south-1.compute.amazonaws.com'}
+2020-08-04 11:25:06 INFO 299: month  July
+2020-08-04 11:25:08 INFO 348: ['i-09c41c9a705b1025d', 'i-0d68ab5e614388ecf', 'i-09bbe1d1fcc80452d', 'i-0ef5356f6f78eeb6e', 'i-005d04626ce3a4827', 'i-09a7efb5d4d8ce925', 'i-01d3e4e60276fed86', 'i-018d584dd046c6e24']
+2020-08-04 11:27:08 INFO 58: SELECT distinct A.MS_userID
+    FROM educatio_educat.common_user_details A, mapping.user_management_mapping B,
+    educatio_adepts.adepts_registrationDetailsLog C WHERE A.id=B.oldID AND A.userName=C.username
+    AND enddate>'2020-07-01' AND category='STUDENT' AND subCategory='School'
+    AND A.MS_userID not in (SELECT MS_userID from educatio_educat.common_user_details where startDate > '2020-07-31')
+    AND (A.childEmail is not null or A.additionalEmail is not null or A.contactno_cel is not null)
+2020-08-04 11:27:11 INFO 73: SELECT distinct MS_userID
+    FROM educatio_educat.common_user_details
+    WHERE enddate>='2020-07-01'
+    AND category='STUDENT'
+    AND subCategory='Individual'
+    AND MS_userID not in (SELECT MS_userID from educatio_educat.common_user_details where startDate > '2020-07-31')
+    AND (childEmail is not null or additionalEmail is not null or contactno_cel is not null)
+2020-08-04 11:27:17 INFO 86: SELECT distinct MS_userID
+    FROM educatio_educat.common_user_details
+    WHERE enddate>='2020-07-01'
+    AND category='STUDENT'
+    AND subCategory='School'
+    AND MS_userID not in (SELECT MS_userID from educatio_educat.common_user_details where startDate > '2020-07-31')
+    AND (childEmail is not null or additionalEmail is not null or contactno_cel is not null)
+2020-08-04 11:27:40 INFO 97: select oldupid as upid,childname,oldschoolcode,class,gender,monthly_correct_ques,monthly_login_days,monthly_total_ques,monthly_accuracy,monthly_usage_time from msm_usage_monthly where calendar_month ='7' 
+    and upid in (select upid from userdetails_dim where category='STUDENT'and enabled in (1,0) and enddate>= '2020-07-01' and (parentemail is not null or contactno_cel is not null or childemail is not null)
+    and upid not in (select upid from userdetails_dim where category='STUDENT' and startdate > '2020-07-31') ) 
+    
+2020-08-04 11:27:43 INFO 107: select oldupid as upid,class,contentid,contenttype,monthly_ques_attempts,progress_of_first_attempt,monthly_accuracy from msm_moduleprogress_monthly where calendar_month =7  
+    and upid in (select upid from userdetails_dim where category='STUDENT'and enabled in (1,0) and enddate>= '2020-07-01' and (parentemail is not null or contactno_cel is not null or childemail is not null)
+    and upid not in (select upid from userdetails_dim where category='STUDENT' and startdate > '2020-07-31') ) 
+    
+2020-08-04 11:27:49 INFO 117: select old_upid as upid,class,contentid,contentattemptnumber,mapped_ttid,accuracy from msm_moduleprogress_attemptid where ((startdate>='2020-07-01' and startdate <='2020-07-31') or (enddate>='2020-07-01' and enddate <='2020-07-31')) and  contenttype='concept'   
+    and upid in (select upid from userdetails_dim where category='STUDENT'and enabled in (1,0) and enddate>= '2020-07-01' and (parentemail is not null or contactno_cel is not null or childemail is not null)
+    and upid not in (select upid from userdetails_dim where category='STUDENT' and startdate > '2020-07-31') ) 
+    
+2020-08-04 11:28:55 INFO 195: Total students 132746
+2020-08-04 11:28:55 INFO 196: Distinct student and class count 133281
+2020-08-04 11:28:55 INFO 197: usage data length 133281
+2020-08-04 11:28:55 INFO 198: topics data length 178793
+2020-08-04 11:28:55 INFO 199: concepts data length 923217
+2020-08-04 11:28:55 INFO 201: b2b2c students 2075
+2020-08-04 11:28:55 INFO 202: b2c students 27979
+2020-08-04 11:28:55 INFO 203: b2b students 224105 (not processing now)
+2020-08-04 11:28:55 INFO 212: b2b2c distinct student and class count 2048
+2020-08-04 11:28:55 INFO 213: b2c distinct student and class count 27966
+2020-08-04 11:28:55 INFO 214: b2b distinct student and class count 103267 
+2020-08-04 11:28:55 INFO 216: no of splits 8
+2020-08-04 11:29:05 INFO 362: {'i-09a7efb5d4d8ce925': 'ec2-52-66-231-67.ap-south-1.compute.amazonaws.com', 'i-005d04626ce3a4827': 'ec2-13-126-250-195.ap-south-1.compute.amazonaws.com', 'i-018d584dd046c6e24': 'ec2-13-234-14-87.ap-south-1.compute.amazonaws.com', 'i-01d3e4e60276fed86': 'ec2-3-6-205-113.ap-south-1.compute.amazonaws.com', 'i-09c41c9a705b1025d': 'ec2-52-66-221-8.ap-south-1.compute.amazonaws.com', 'i-09bbe1d1fcc80452d': 'ec2-52-66-234-164.ap-south-1.compute.amazonaws.com', 'i-0d68ab5e614388ecf': 'ec2-13-235-56-182.ap-south-1.compute.amazonaws.com', 'i-0ef5356f6f78eeb6e': 'ec2-15-207-119-222.ap-south-1.compute.amazonaws.com'}
+2020-08-04 11:33:31 INFO 417: no_usage b2b2c students 421
+2020-08-04 11:33:31 INFO 418: not_done b2b2c students 954
+2020-08-04 11:33:31 INFO 419: done b2b2c students 673
+2020-08-04 11:33:32 INFO 417: no_usage b2b students 0
+2020-08-04 11:33:32 INFO 418: not_done b2b students 0
+2020-08-04 11:33:32 INFO 419: done b2b students 0
+2020-08-04 11:33:32 INFO 417: no_usage b2c students 0
+2020-08-04 11:33:32 INFO 418: not_done b2c students 0
+2020-08-04 11:33:32 INFO 419: done b2c students 0
+2020-08-04 11:33:33 INFO 439: students 2048
+2020-08-04 11:33:33 INFO 455: The whole thing took: 8.45 min
+2020-08-04 11:33:40 ERROR 503: extraction failed due to 
+Traceback (most recent call last):
+  File "/home/anaconda3/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1244, in _execute_context
+    cursor, statement, parameters, context
+  File "/home/anaconda3/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 550, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.InternalError: Spectrum Scan Error
+DETAIL:  
+  -----------------------------------------------
+  error:  Spectrum Scan Error
+  code:      15001
+  context:   File 'https://s3.ap-southeast-1.amazonaws.com/ei-marketingdata/parentReport_monthly_July/students.parquet  has an incompatible Parquet schema for column 's3://ei-marketingdata/parentReport_monthly_July/students.parquet.class'. Column type: BIGINT, Parquet 
+  query:     1516573
+  location:  dory_util.cpp:939
+  process:   __padb__ [pid=17349]
+  -----------------------------------------------
+
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "mon_extraction3.py", line 497, in <module>
+    engine.execute(sql)
+  File "/home/anaconda3/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 2166, in execute
+    return connection.execute(statement, *multiparams, **params)
+  File "/home/anaconda3/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 982, in execute
+    return self._execute_text(object_, multiparams, params)
+  File "/home/anaconda3/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1155, in _execute_text
+    parameters,
+  File "/home/anaconda3/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1248, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/home/anaconda3/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1466, in _handle_dbapi_exception
+    util.raise_from_cause(sqlalchemy_exception, exc_info)
+  File "/home/anaconda3/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 399, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/home/anaconda3/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 153, in reraise
+    raise value.with_traceback(tb)
+  File "/home/anaconda3/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1244, in _execute_context
+    cursor, statement, parameters, context
+  File "/home/anaconda3/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 550, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.InternalError: (psycopg2.InternalError) Spectrum Scan Error
+DETAIL:  
+  -----------------------------------------------
+  error:  Spectrum Scan Error
+  code:      15001
+  context:   File 'https://s3.ap-southeast-1.amazonaws.com/ei-marketingdata/parentReport_monthly_July/students.parquet  has an incompatible Parquet schema for column 's3://ei-marketingdata/parentReport_monthly_July/students.parquet.class'. Column type: BIGINT, Parquet 
+  query:     1516573
+  location:  dory_util.cpp:939
+  process:   __padb__ [pid=17349]
+  -----------------------------------------------
+
+
+[SQL: 
+
+    DROP TABLE IF EXISTS monthly_parent_report_logs_stg;
+
+    CREATE TABLE IF NOT EXISTS monthly_parent_report_logs_stg(
+    category VARCHAR(100),upid int8,class int8,
+    report_status VARCHAR(100),
+    month VARCHAR(100));
+
+
+    COPY  monthly_parent_report_logs_stg
+    FROM 's3://ei-marketingdata/parentReport_monthly_July/students.parquet'
+    IAM_ROLE 'arn:aws:iam::866998810058:role/myRedshiftRole'
+    Format as parquet;
+
+
+    CREATE TABLE IF NOT EXISTS monthly_parent_report_logs(
+    category VARCHAR(100),upid int8,class int8,
+    report_status VARCHAR(100),
+    month VARCHAR(100),
+    lastModified datetime default sysdate);
+
+    INSERT INTO "public"."monthly_parent_report_logs"
+    (SELECT category,upid,class,report_status,month
+    FROM "public"."monthly_parent_report_logs_stg");
+     
+    DROP TABLE IF EXISTS monthly_parent_report_logs_stg;
+
+    commit;
+    ]
+(Background on this error at: http://sqlalche.me/e/2j85)
+2020-08-04 11:37:31 INFO 299: month  July
+2020-08-04 11:37:33 INFO 348: ['i-009134341ad5f6d7f', 'i-0642a6254d6de245f', 'i-0e7051658b5095c78', 'i-0ef367f9f102fb05a', 'i-0f246e15a9c889147', 'i-088d8f67f863225d9', 'i-0b3306de7116bd700', 'i-0370f9da4d10986cc']
+2020-08-04 11:39:33 INFO 58: SELECT distinct A.MS_userID
+    FROM educatio_educat.common_user_details A, mapping.user_management_mapping B,
+    educatio_adepts.adepts_registrationDetailsLog C WHERE A.id=B.oldID AND A.userName=C.username
+    AND enddate>'2020-07-01' AND category='STUDENT' AND subCategory='School'
+    AND A.MS_userID not in (SELECT MS_userID from educatio_educat.common_user_details where startDate > '2020-07-31')
+    AND (A.childEmail is not null or A.additionalEmail is not null or A.contactno_cel is not null)
+2020-08-04 11:39:37 INFO 73: SELECT distinct MS_userID
+    FROM educatio_educat.common_user_details
+    WHERE enddate>='2020-07-01'
+    AND category='STUDENT'
+    AND subCategory='Individual'
+    AND MS_userID not in (SELECT MS_userID from educatio_educat.common_user_details where startDate > '2020-07-31')
+    AND (childEmail is not null or additionalEmail is not null or contactno_cel is not null)
+2020-08-04 11:39:43 INFO 86: SELECT distinct MS_userID
+    FROM educatio_educat.common_user_details
+    WHERE enddate>='2020-07-01'
+    AND category='STUDENT'
+    AND subCategory='School'
+    AND MS_userID not in (SELECT MS_userID from educatio_educat.common_user_details where startDate > '2020-07-31')
+    AND (childEmail is not null or additionalEmail is not null or contactno_cel is not null)
+2020-08-04 11:40:08 INFO 97: select oldupid as upid,childname,oldschoolcode,class,gender,monthly_correct_ques,monthly_login_days,monthly_total_ques,monthly_accuracy,monthly_usage_time from msm_usage_monthly where calendar_month ='7' 
+    and upid in (select upid from userdetails_dim where category='STUDENT'and enabled in (1,0) and enddate>= '2020-07-01' and (parentemail is not null or contactno_cel is not null or childemail is not null)
+    and upid not in (select upid from userdetails_dim where category='STUDENT' and startdate > '2020-07-31') ) 
+    
+2020-08-04 11:40:12 INFO 107: select oldupid as upid,class,contentid,contenttype,monthly_ques_attempts,progress_of_first_attempt,monthly_accuracy from msm_moduleprogress_monthly where calendar_month =7  
+    and upid in (select upid from userdetails_dim where category='STUDENT'and enabled in (1,0) and enddate>= '2020-07-01' and (parentemail is not null or contactno_cel is not null or childemail is not null)
+    and upid not in (select upid from userdetails_dim where category='STUDENT' and startdate > '2020-07-31') ) 
+    
+2020-08-04 11:40:19 INFO 117: select old_upid as upid,class,contentid,contentattemptnumber,mapped_ttid,accuracy from msm_moduleprogress_attemptid where ((startdate>='2020-07-01' and startdate <='2020-07-31') or (enddate>='2020-07-01' and enddate <='2020-07-31')) and  contenttype='concept'   
+    and upid in (select upid from userdetails_dim where category='STUDENT'and enabled in (1,0) and enddate>= '2020-07-01' and (parentemail is not null or contactno_cel is not null or childemail is not null)
+    and upid not in (select upid from userdetails_dim where category='STUDENT' and startdate > '2020-07-31') ) 
+    
+2020-08-04 11:42:37 INFO 195: Total students 132746
+2020-08-04 11:42:37 INFO 196: Distinct student and class count 133281
+2020-08-04 11:42:37 INFO 197: usage data length 133281
+2020-08-04 11:42:37 INFO 198: topics data length 178793
+2020-08-04 11:42:37 INFO 199: concepts data length 923217
+2020-08-04 11:42:37 INFO 201: b2b2c students 2075
+2020-08-04 11:42:37 INFO 202: b2c students 27979
+2020-08-04 11:42:37 INFO 203: b2b students 224105 (not processing now)
+2020-08-04 11:42:37 INFO 212: b2b2c distinct student and class count 2048
+2020-08-04 11:42:37 INFO 213: b2c distinct student and class count 27966
+2020-08-04 11:42:37 INFO 214: b2b distinct student and class count 103267 
+2020-08-04 11:42:37 INFO 216: no of splits 8
+2020-08-04 11:42:48 INFO 362: {'i-0e7051658b5095c78': 'ec2-15-207-103-84.ap-south-1.compute.amazonaws.com', 'i-0f246e15a9c889147': 'ec2-3-7-249-247.ap-south-1.compute.amazonaws.com', 'i-0b3306de7116bd700': 'ec2-52-66-220-124.ap-south-1.compute.amazonaws.com', 'i-0370f9da4d10986cc': 'ec2-3-6-150-232.ap-south-1.compute.amazonaws.com', 'i-009134341ad5f6d7f': 'ec2-15-207-102-163.ap-south-1.compute.amazonaws.com', 'i-0642a6254d6de245f': 'ec2-52-66-220-161.ap-south-1.compute.amazonaws.com', 'i-0ef367f9f102fb05a': 'ec2-13-235-57-15.ap-south-1.compute.amazonaws.com', 'i-088d8f67f863225d9': 'ec2-3-7-54-79.ap-south-1.compute.amazonaws.com'}
+2020-08-04 12:02:44 INFO 299: month  July
+2020-08-04 12:02:46 INFO 348: ['i-0a0dca8c712c8b495', 'i-0c87bffdb36519de7', 'i-00bbcc8eafd7cdd7e', 'i-000b8934f84ebe721', 'i-0915b0bd5c67eef62', 'i-025a4b5252928fea0', 'i-05e1b89de83e54235', 'i-06b2f26b9a0d02540']
+2020-08-04 12:04:46 INFO 58: SELECT distinct A.MS_userID
+    FROM educatio_educat.common_user_details A, mapping.user_management_mapping B,
+    educatio_adepts.adepts_registrationDetailsLog C WHERE A.id=B.oldID AND A.userName=C.username
+    AND enddate>'2020-07-01' AND category='STUDENT' AND subCategory='School'
+    AND A.MS_userID not in (SELECT MS_userID from educatio_educat.common_user_details where startDate > '2020-07-31')
+    AND (A.childEmail is not null or A.additionalEmail is not null or A.contactno_cel is not null)
+2020-08-04 12:04:46 INFO 73: SELECT distinct MS_userID
+    FROM educatio_educat.common_user_details
+    WHERE enddate>='2020-07-01'
+    AND category='STUDENT'
+    AND subCategory='Individual'
+    AND MS_userID not in (SELECT MS_userID from educatio_educat.common_user_details where startDate > '2020-07-31')
+    AND (childEmail is not null or additionalEmail is not null or contactno_cel is not null)
+2020-08-04 12:04:52 INFO 86: SELECT distinct MS_userID
+    FROM educatio_educat.common_user_details
+    WHERE enddate>='2020-07-01'
+    AND category='STUDENT'
+    AND subCategory='School'
+    AND MS_userID not in (SELECT MS_userID from educatio_educat.common_user_details where startDate > '2020-07-31')
+    AND (childEmail is not null or additionalEmail is not null or contactno_cel is not null)
+2020-08-04 12:05:16 INFO 97: select oldupid as upid,childname,oldschoolcode,class,gender,monthly_correct_ques,monthly_login_days,monthly_total_ques,monthly_accuracy,monthly_usage_time from msm_usage_monthly where calendar_month ='7' 
+    and upid in (select upid from userdetails_dim where category='STUDENT'and enabled in (1,0) and enddate>= '2020-07-01' and (parentemail is not null or contactno_cel is not null or childemail is not null)
+    and upid not in (select upid from userdetails_dim where category='STUDENT' and startdate > '2020-07-31') ) 
+    
+2020-08-04 12:05:20 INFO 107: select oldupid as upid,class,contentid,contenttype,monthly_ques_attempts,progress_of_first_attempt,monthly_accuracy from msm_moduleprogress_monthly where calendar_month =7  
+    and upid in (select upid from userdetails_dim where category='STUDENT'and enabled in (1,0) and enddate>= '2020-07-01' and (parentemail is not null or contactno_cel is not null or childemail is not null)
+    and upid not in (select upid from userdetails_dim where category='STUDENT' and startdate > '2020-07-31') ) 
+    
+2020-08-04 12:05:25 INFO 117: select old_upid as upid,class,contentid,contentattemptnumber,mapped_ttid,accuracy from msm_moduleprogress_attemptid where ((startdate>='2020-07-01' and startdate <='2020-07-31') or (enddate>='2020-07-01' and enddate <='2020-07-31')) and  contenttype='concept'   
+    and upid in (select upid from userdetails_dim where category='STUDENT'and enabled in (1,0) and enddate>= '2020-07-01' and (parentemail is not null or contactno_cel is not null or childemail is not null)
+    and upid not in (select upid from userdetails_dim where category='STUDENT' and startdate > '2020-07-31') ) 
+    
+2020-08-04 12:06:34 INFO 195: Total students 132746
+2020-08-04 12:06:34 INFO 196: Distinct student and class count 133281
+2020-08-04 12:06:34 INFO 197: usage data length 133281
+2020-08-04 12:06:34 INFO 198: topics data length 178793
+2020-08-04 12:06:34 INFO 199: concepts data length 923217
+2020-08-04 12:06:34 INFO 201: b2b2c students 2076
+2020-08-04 12:06:34 INFO 202: b2c students 27978
+2020-08-04 12:06:34 INFO 203: b2b students 224105 (not processing now)
+2020-08-04 12:06:34 INFO 212: b2b2c distinct student and class count 2049
+2020-08-04 12:06:34 INFO 213: b2c distinct student and class count 27965
+2020-08-04 12:06:34 INFO 214: b2b distinct student and class count 103267 
+2020-08-04 12:06:34 INFO 216: no of splits 8
+2020-08-04 12:06:45 INFO 362: {'i-0a0dca8c712c8b495': 'ec2-15-206-204-104.ap-south-1.compute.amazonaws.com', 'i-000b8934f84ebe721': 'ec2-3-7-62-55.ap-south-1.compute.amazonaws.com', 'i-0c87bffdb36519de7': 'ec2-15-206-204-150.ap-south-1.compute.amazonaws.com', 'i-00bbcc8eafd7cdd7e': 'ec2-13-235-55-163.ap-south-1.compute.amazonaws.com', 'i-05e1b89de83e54235': 'ec2-3-6-7-48.ap-south-1.compute.amazonaws.com', 'i-06b2f26b9a0d02540': 'ec2-3-7-37-179.ap-south-1.compute.amazonaws.com', 'i-0915b0bd5c67eef62': 'ec2-15-207-105-99.ap-south-1.compute.amazonaws.com', 'i-025a4b5252928fea0': 'ec2-13-235-252-95.ap-south-1.compute.amazonaws.com'}
+2020-08-04 12:13:05 INFO 299: month  July
+2020-08-04 12:13:05 ERROR 503: extraction failed due to 
+Traceback (most recent call last):
+  File "mon_extraction3.py", line 343, in <module>
+    'Enabled': True
+  File "/home/anaconda3/lib/python3.7/site-packages/boto3/resources/factory.py", line 520, in do_action
+    response = action(self, *args, **kwargs)
+  File "/home/anaconda3/lib/python3.7/site-packages/boto3/resources/action.py", line 83, in __call__
+    response = getattr(parent.meta.client, operation_name)(**params)
+  File "/home/anaconda3/lib/python3.7/site-packages/botocore/client.py", line 357, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+  File "/home/anaconda3/lib/python3.7/site-packages/botocore/client.py", line 661, in _make_api_call
+    raise error_class(parsed_response, operation_name)
+botocore.exceptions.ClientError: An error occurred (InvalidAMIID.Unavailable) when calling the RunInstances operation: AMI 'ami-0f8cd3a349efdb202' is pending, and cannot be run
+2020-08-04 12:13:46 INFO 299: month  July
+2020-08-04 12:13:47 INFO 348: ['i-0cc61e9233033d7e0', 'i-0806864ce8783f64f', 'i-00b7b914a87760bf4', 'i-0200f92c2f57a0846', 'i-002dcf232ae6f3501', 'i-09711ce49503019a8', 'i-075ab7372b90d78f9', 'i-025cb16c83f4139f6']
+2020-08-04 12:15:48 INFO 58: SELECT distinct A.MS_userID
+    FROM educatio_educat.common_user_details A, mapping.user_management_mapping B,
+    educatio_adepts.adepts_registrationDetailsLog C WHERE A.id=B.oldID AND A.userName=C.username
+    AND enddate>'2020-07-01' AND category='STUDENT' AND subCategory='School'
+    AND A.MS_userID not in (SELECT MS_userID from educatio_educat.common_user_details where startDate > '2020-07-31')
+    AND (A.childEmail is not null or A.additionalEmail is not null or A.contactno_cel is not null)
+2020-08-04 12:15:48 INFO 73: SELECT distinct MS_userID
+    FROM educatio_educat.common_user_details
+    WHERE enddate>='2020-07-01'
+    AND category='STUDENT'
+    AND subCategory='Individual'
+    AND MS_userID not in (SELECT MS_userID from educatio_educat.common_user_details where startDate > '2020-07-31')
+    AND (childEmail is not null or additionalEmail is not null or contactno_cel is not null)
+2020-08-04 12:15:52 INFO 86: SELECT distinct MS_userID
+    FROM educatio_educat.common_user_details
+    WHERE enddate>='2020-07-01'
+    AND category='STUDENT'
+    AND subCategory='School'
+    AND MS_userID not in (SELECT MS_userID from educatio_educat.common_user_details where startDate > '2020-07-31')
+    AND (childEmail is not null or additionalEmail is not null or contactno_cel is not null)
+2020-08-04 12:16:16 INFO 97: select oldupid as upid,childname,oldschoolcode,class,gender,monthly_correct_ques,monthly_login_days,monthly_total_ques,monthly_accuracy,monthly_usage_time from msm_usage_monthly where calendar_month ='7' 
+    and upid in (select upid from userdetails_dim where category='STUDENT'and enabled in (1,0) and enddate>= '2020-07-01' and (parentemail is not null or contactno_cel is not null or childemail is not null)
+    and upid not in (select upid from userdetails_dim where category='STUDENT' and startdate > '2020-07-31') ) 
+    
+2020-08-04 12:16:19 INFO 107: select oldupid as upid,class,contentid,contenttype,monthly_ques_attempts,progress_of_first_attempt,monthly_accuracy from msm_moduleprogress_monthly where calendar_month =7  
+    and upid in (select upid from userdetails_dim where category='STUDENT'and enabled in (1,0) and enddate>= '2020-07-01' and (parentemail is not null or contactno_cel is not null or childemail is not null)
+    and upid not in (select upid from userdetails_dim where category='STUDENT' and startdate > '2020-07-31') ) 
+    
+2020-08-04 12:16:31 INFO 117: select old_upid as upid,class,contentid,contentattemptnumber,mapped_ttid,accuracy from msm_moduleprogress_attemptid where ((startdate>='2020-07-01' and startdate <='2020-07-31') or (enddate>='2020-07-01' and enddate <='2020-07-31')) and  contenttype='concept'   
+    and upid in (select upid from userdetails_dim where category='STUDENT'and enabled in (1,0) and enddate>= '2020-07-01' and (parentemail is not null or contactno_cel is not null or childemail is not null)
+    and upid not in (select upid from userdetails_dim where category='STUDENT' and startdate > '2020-07-31') ) 
+    
+2020-08-04 12:17:44 INFO 195: Total students 132746
+2020-08-04 12:17:44 INFO 196: Distinct student and class count 133281
+2020-08-04 12:17:44 INFO 197: usage data length 133281
+2020-08-04 12:17:44 INFO 198: topics data length 178793
+2020-08-04 12:17:44 INFO 199: concepts data length 923217
+2020-08-04 12:17:44 INFO 201: b2b2c students 2076
+2020-08-04 12:17:44 INFO 202: b2c students 27978
+2020-08-04 12:17:44 INFO 203: b2b students 224110 
+2020-08-04 12:17:44 INFO 212: b2b2c distinct student and class count 2049
+2020-08-04 12:17:44 INFO 213: b2c distinct student and class count 27965
+2020-08-04 12:17:44 INFO 214: b2b distinct student and class count 103267 
+2020-08-04 12:17:44 INFO 216: no of splits 8
+2020-08-04 12:17:55 INFO 362: {'i-0cc61e9233033d7e0': 'ec2-15-207-105-150.ap-south-1.compute.amazonaws.com', 'i-00b7b914a87760bf4': 'ec2-13-235-84-175.ap-south-1.compute.amazonaws.com', 'i-0806864ce8783f64f': 'ec2-13-234-10-205.ap-south-1.compute.amazonaws.com', 'i-075ab7372b90d78f9': 'ec2-3-6-43-118.ap-south-1.compute.amazonaws.com', 'i-002dcf232ae6f3501': 'ec2-15-206-207-147.ap-south-1.compute.amazonaws.com', 'i-025cb16c83f4139f6': 'ec2-13-235-59-207.ap-south-1.compute.amazonaws.com', 'i-09711ce49503019a8': 'ec2-13-232-255-65.ap-south-1.compute.amazonaws.com', 'i-0200f92c2f57a0846': 'ec2-3-7-74-125.ap-south-1.compute.amazonaws.com'}
+2020-08-04 12:42:15 INFO 417: no_usage b2b2c students 421
+2020-08-04 12:42:15 INFO 418: not_done b2b2c students 0
+2020-08-04 12:42:15 INFO 419: done b2b2c students 1628
+2020-08-04 12:42:16 INFO 417: no_usage b2b students 56513
+2020-08-04 12:42:16 INFO 418: not_done b2b students 0
+2020-08-04 12:42:16 INFO 419: done b2b students 46754
+2020-08-04 12:42:17 INFO 417: no_usage b2c students 25390
+2020-08-04 12:42:17 INFO 418: not_done b2c students 0
+2020-08-04 12:42:17 INFO 419: done b2c students 2575
+2020-08-04 12:42:18 INFO 439: students 133281
+2020-08-04 12:42:19 INFO 455: The whole thing took: 28.54 min
+2020-08-04 12:42:28 ERROR 503: extraction failed due to 
+Traceback (most recent call last):
+  File "/home/anaconda3/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1244, in _execute_context
+    cursor, statement, parameters, context
+  File "/home/anaconda3/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 550, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.InternalError: Spectrum Scan Error
+DETAIL:  
+  -----------------------------------------------
+  error:  Spectrum Scan Error
+  code:      15001
+  context:   Unmatched number of columns between table and file. Table columns: 5, Data columns: 6, File name: https://s3.ap-southeast-1.amazonaws.com/ei-marketingdata/parentReport_monthly_July/students.parquet?&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA4TX
+  query:     1518361
+  location:  dory_util.cpp:939
+  process:   __padb__ [pid=12584]
+  -----------------------------------------------
+
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "mon_extraction3.py", line 497, in <module>
+    engine.execute(sql)
+  File "/home/anaconda3/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 2166, in execute
+    return connection.execute(statement, *multiparams, **params)
+  File "/home/anaconda3/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 982, in execute
+    return self._execute_text(object_, multiparams, params)
+  File "/home/anaconda3/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1155, in _execute_text
+    parameters,
+  File "/home/anaconda3/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1248, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/home/anaconda3/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1466, in _handle_dbapi_exception
+    util.raise_from_cause(sqlalchemy_exception, exc_info)
+  File "/home/anaconda3/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 399, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/home/anaconda3/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 153, in reraise
+    raise value.with_traceback(tb)
+  File "/home/anaconda3/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1244, in _execute_context
+    cursor, statement, parameters, context
+  File "/home/anaconda3/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 550, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.InternalError: (psycopg2.InternalError) Spectrum Scan Error
+DETAIL:  
+  -----------------------------------------------
+  error:  Spectrum Scan Error
+  code:      15001
+  context:   Unmatched number of columns between table and file. Table columns: 5, Data columns: 6, File name: https://s3.ap-southeast-1.amazonaws.com/ei-marketingdata/parentReport_monthly_July/students.parquet?&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA4TX
+  query:     1518361
+  location:  dory_util.cpp:939
+  process:   __padb__ [pid=12584]
+  -----------------------------------------------
+
+
+[SQL: 
+
+    DROP TABLE IF EXISTS monthly_parent_report_logs_stg;
+
+    CREATE TABLE IF NOT EXISTS monthly_parent_report_logs_stg(
+    category VARCHAR(100),class int8,
+    report_status VARCHAR(100),upid int8,
+    month VARCHAR(100));
+
+
+    COPY  monthly_parent_report_logs_stg
+    FROM 's3://ei-marketingdata/parentReport_monthly_July/students.parquet'
+    IAM_ROLE 'arn:aws:iam::866998810058:role/myRedshiftRole'
+    Format as parquet;
+
+
+    CREATE TABLE IF NOT EXISTS monthly_parent_report_logs(
+    category VARCHAR(100),upid int8,class int8,
+    report_status VARCHAR(100),
+    month VARCHAR(100),
+    lastModified datetime default sysdate);
+
+    INSERT INTO "public"."monthly_parent_report_logs"
+    (SELECT category,upid,class,report_status,month
+    FROM "public"."monthly_parent_report_logs_stg");
+     
+    DROP TABLE IF EXISTS monthly_parent_report_logs_stg;
+
+    commit;
+    ]
+(Background on this error at: http://sqlalche.me/e/2j85)
+2020-08-04 16:17:22 INFO 63: month  July
+2020-08-04 16:17:22 INFO 86: {}
+2020-08-04 16:17:23 INFO 141: no_usage b2b2c students 421
+2020-08-04 16:17:23 INFO 142: not_done b2b2c students 0
+2020-08-04 16:17:23 INFO 143: done b2b2c students 1628
+2020-08-04 16:17:23 INFO 141: no_usage b2b students 56513
+2020-08-04 16:17:23 INFO 142: not_done b2b students 0
+2020-08-04 16:17:23 INFO 143: done b2b students 46754
+2020-08-04 16:17:24 INFO 141: no_usage b2c students 25390
+2020-08-04 16:17:24 INFO 142: not_done b2c students 0
+2020-08-04 16:17:24 INFO 143: done b2c students 2575
+2020-08-04 16:17:25 INFO 164: students 133281
+2020-08-04 16:17:27 INFO 180: The whole thing took: 0.08 min
+2020-08-04 16:17:32 ERROR 228: extraction failed due to 
+Traceback (most recent call last):
+  File "/home/anaconda3/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1244, in _execute_context
+    cursor, statement, parameters, context
+  File "/home/anaconda3/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 550, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.InternalError: Spectrum Scan Error
+DETAIL:  
+  -----------------------------------------------
+  error:  Spectrum Scan Error
+  code:      15001
+  context:   File 'https://s3.ap-southeast-1.amazonaws.com/ei-marketingdata/parentReport_monthly_July/students.parquet  has an incompatible Parquet schema for column 's3://ei-marketingdata/parentReport_monthly_July/students.parquet.class'. Column type: BIGINT, Parquet 
+  query:     1524284
+  location:  dory_util.cpp:939
+  process:   __padb__ [pid=13943]
+  -----------------------------------------------
+
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "mon_log_tosql.py", line 222, in <module>
+    engine.execute(sql)
+  File "/home/anaconda3/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 2166, in execute
+    return connection.execute(statement, *multiparams, **params)
+  File "/home/anaconda3/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 982, in execute
+    return self._execute_text(object_, multiparams, params)
+  File "/home/anaconda3/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1155, in _execute_text
+    parameters,
+  File "/home/anaconda3/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1248, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/home/anaconda3/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1466, in _handle_dbapi_exception
+    util.raise_from_cause(sqlalchemy_exception, exc_info)
+  File "/home/anaconda3/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 399, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/home/anaconda3/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 153, in reraise
+    raise value.with_traceback(tb)
+  File "/home/anaconda3/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1244, in _execute_context
+    cursor, statement, parameters, context
+  File "/home/anaconda3/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 550, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.InternalError: (psycopg2.InternalError) Spectrum Scan Error
+DETAIL:  
+  -----------------------------------------------
+  error:  Spectrum Scan Error
+  code:      15001
+  context:   File 'https://s3.ap-southeast-1.amazonaws.com/ei-marketingdata/parentReport_monthly_July/students.parquet  has an incompatible Parquet schema for column 's3://ei-marketingdata/parentReport_monthly_July/students.parquet.class'. Column type: BIGINT, Parquet 
+  query:     1524284
+  location:  dory_util.cpp:939
+  process:   __padb__ [pid=13943]
+  -----------------------------------------------
+
+
+[SQL: 
+
+    DROP TABLE IF EXISTS monthly_parent_report_logs_stg;
+
+    CREATE TABLE IF NOT EXISTS monthly_parent_report_logs_stg(
+    category VARCHAR(100),class int8,
+    report_status VARCHAR(100),upid int8,
+    month VARCHAR(100));
+
+
+    COPY  monthly_parent_report_logs_stg
+    FROM 's3://ei-marketingdata/parentReport_monthly_July/students.parquet'
+    IAM_ROLE 'arn:aws:iam::866998810058:role/myRedshiftRole'
+    Format as parquet;
+
+
+    CREATE TABLE IF NOT EXISTS monthly_parent_report_logs(
+    category VARCHAR(100),upid int8,class int8,
+    report_status VARCHAR(100),
+    month VARCHAR(100),
+    lastModified datetime default sysdate);
+
+    INSERT INTO "public"."monthly_parent_report_logs"
+    (SELECT category,upid,class,report_status,month
+    FROM "public"."monthly_parent_report_logs_stg");
+     
+    DROP TABLE IF EXISTS monthly_parent_report_logs_stg;
+
+    commit;
+    ]
+(Background on this error at: http://sqlalche.me/e/2j85)
+2020-08-04 16:19:03 INFO 63: month  July
+2020-08-04 16:19:04 INFO 86: {}
+2020-08-04 16:19:04 INFO 141: no_usage b2b2c students 421
+2020-08-04 16:19:04 INFO 142: not_done b2b2c students 0
+2020-08-04 16:19:04 INFO 143: done b2b2c students 1628
+2020-08-04 16:19:05 INFO 141: no_usage b2b students 56513
+2020-08-04 16:19:05 INFO 142: not_done b2b students 0
+2020-08-04 16:19:05 INFO 143: done b2b students 46754
+2020-08-04 16:19:06 INFO 141: no_usage b2c students 25390
+2020-08-04 16:19:06 INFO 142: not_done b2c students 0
+2020-08-04 16:19:06 INFO 143: done b2c students 2575
+2020-08-04 16:19:07 INFO 164: students 133281
+2020-08-04 16:19:08 INFO 180: The whole thing took: 0.07 min
+2020-08-04 16:19:17 ERROR 228: extraction failed due to 
+Traceback (most recent call last):
+  File "/home/anaconda3/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1244, in _execute_context
+    cursor, statement, parameters, context
+  File "/home/anaconda3/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 550, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.InternalError: Spectrum Scan Error
+DETAIL:  
+  -----------------------------------------------
+  error:  Spectrum Scan Error
+  code:      15001
+  context:   File 'https://s3.ap-southeast-1.amazonaws.com/ei-marketingdata/parentReport_monthly_July/students.parquet  has an incompatible Parquet schema for column 's3://ei-marketingdata/parentReport_monthly_July/students.parquet.class'. Column type: INT, Parquet sch
+  query:     1524457
+  location:  dory_util.cpp:939
+  process:   __padb__ [pid=13946]
+  -----------------------------------------------
+
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "mon_log_tosql.py", line 222, in <module>
+    engine.execute(sql)
+  File "/home/anaconda3/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 2166, in execute
+    return connection.execute(statement, *multiparams, **params)
+  File "/home/anaconda3/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 982, in execute
+    return self._execute_text(object_, multiparams, params)
+  File "/home/anaconda3/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1155, in _execute_text
+    parameters,
+  File "/home/anaconda3/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1248, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/home/anaconda3/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1466, in _handle_dbapi_exception
+    util.raise_from_cause(sqlalchemy_exception, exc_info)
+  File "/home/anaconda3/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 399, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/home/anaconda3/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 153, in reraise
+    raise value.with_traceback(tb)
+  File "/home/anaconda3/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1244, in _execute_context
+    cursor, statement, parameters, context
+  File "/home/anaconda3/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 550, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.InternalError: (psycopg2.InternalError) Spectrum Scan Error
+DETAIL:  
+  -----------------------------------------------
+  error:  Spectrum Scan Error
+  code:      15001
+  context:   File 'https://s3.ap-southeast-1.amazonaws.com/ei-marketingdata/parentReport_monthly_July/students.parquet  has an incompatible Parquet schema for column 's3://ei-marketingdata/parentReport_monthly_July/students.parquet.class'. Column type: INT, Parquet sch
+  query:     1524457
+  location:  dory_util.cpp:939
+  process:   __padb__ [pid=13946]
+  -----------------------------------------------
+
+
+[SQL: 
+
+    DROP TABLE IF EXISTS monthly_parent_report_logs_stg;
+
+    CREATE TABLE IF NOT EXISTS monthly_parent_report_logs_stg(
+    category VARCHAR(100),class int4,
+    report_status VARCHAR(100),upid int8,
+    month VARCHAR(100));
+
+
+    COPY  monthly_parent_report_logs_stg
+    FROM 's3://ei-marketingdata/parentReport_monthly_July/students.parquet'
+    IAM_ROLE 'arn:aws:iam::866998810058:role/myRedshiftRole'
+    Format as parquet;
+
+
+    CREATE TABLE IF NOT EXISTS monthly_parent_report_logs(
+    category VARCHAR(100),upid int8,class int4,
+    report_status VARCHAR(100),
+    month VARCHAR(100),
+    lastModified datetime default sysdate);
+
+    INSERT INTO "public"."monthly_parent_report_logs"
+    (SELECT category,upid,class,report_status,month
+    FROM "public"."monthly_parent_report_logs_stg");
+     
+    DROP TABLE IF EXISTS monthly_parent_report_logs_stg;
+
+    commit;
+    ]
+(Background on this error at: http://sqlalche.me/e/2j85)
+2020-08-04 16:28:09 INFO 63: month  July
+2020-08-04 16:28:09 INFO 86: {}
+2020-08-04 16:28:10 INFO 141: no_usage b2b2c students 421
+2020-08-04 16:28:10 INFO 142: not_done b2b2c students 0
+2020-08-04 16:28:10 INFO 143: done b2b2c students 1628
+2020-08-04 16:28:11 INFO 141: no_usage b2b students 56513
+2020-08-04 16:28:11 INFO 142: not_done b2b students 0
+2020-08-04 16:28:11 INFO 143: done b2b students 46754
+2020-08-04 16:28:11 INFO 141: no_usage b2c students 25390
+2020-08-04 16:28:11 INFO 142: not_done b2c students 0
+2020-08-04 16:28:11 INFO 143: done b2c students 2575
+2020-08-04 16:28:12 INFO 166: students 133281
+2020-08-04 16:28:14 INFO 182: The whole thing took: 0.07 min
+2020-08-04 16:28:17 ERROR 230: extraction failed due to 
+Traceback (most recent call last):
+  File "/home/anaconda3/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1244, in _execute_context
+    cursor, statement, parameters, context
+  File "/home/anaconda3/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 550, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.InternalError: Spectrum Scan Error
+DETAIL:  
+  -----------------------------------------------
+  error:  Spectrum Scan Error
+  code:      15001
+  context:   File 'https://s3.ap-southeast-1.amazonaws.com/ei-marketingdata/parentReport_monthly_July/students.parquet  has an incompatible Parquet schema for column 's3://ei-marketingdata/parentReport_monthly_July/students.parquet.class'. Column type: INT, Parquet sch
+  query:     1524609
+  location:  dory_util.cpp:939
+  process:   __padb__ [pid=15427]
+  -----------------------------------------------
+
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "mon_log_tosql.py", line 224, in <module>
+    engine.execute(sql)
+  File "/home/anaconda3/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 2166, in execute
+    return connection.execute(statement, *multiparams, **params)
+  File "/home/anaconda3/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 982, in execute
+    return self._execute_text(object_, multiparams, params)
+  File "/home/anaconda3/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1155, in _execute_text
+    parameters,
+  File "/home/anaconda3/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1248, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/home/anaconda3/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1466, in _handle_dbapi_exception
+    util.raise_from_cause(sqlalchemy_exception, exc_info)
+  File "/home/anaconda3/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 399, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/home/anaconda3/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 153, in reraise
+    raise value.with_traceback(tb)
+  File "/home/anaconda3/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1244, in _execute_context
+    cursor, statement, parameters, context
+  File "/home/anaconda3/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 550, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.InternalError: (psycopg2.InternalError) Spectrum Scan Error
+DETAIL:  
+  -----------------------------------------------
+  error:  Spectrum Scan Error
+  code:      15001
+  context:   File 'https://s3.ap-southeast-1.amazonaws.com/ei-marketingdata/parentReport_monthly_July/students.parquet  has an incompatible Parquet schema for column 's3://ei-marketingdata/parentReport_monthly_July/students.parquet.class'. Column type: INT, Parquet sch
+  query:     1524609
+  location:  dory_util.cpp:939
+  process:   __padb__ [pid=15427]
+  -----------------------------------------------
+
+
+[SQL: 
+
+    DROP TABLE IF EXISTS monthly_parent_report_logs_stg;
+
+    CREATE TABLE IF NOT EXISTS monthly_parent_report_logs_stg(
+    category VARCHAR(100),class int4,
+    report_status VARCHAR(100),upid int8,
+    month VARCHAR(100));
+
+
+    COPY  monthly_parent_report_logs_stg
+    FROM 's3://ei-marketingdata/parentReport_monthly_July/students.parquet'
+    IAM_ROLE 'arn:aws:iam::866998810058:role/myRedshiftRole'
+    Format as parquet;
+
+
+    CREATE TABLE IF NOT EXISTS monthly_parent_report_logs(
+    category VARCHAR(100),upid int8,class int4,
+    report_status VARCHAR(100),
+    month VARCHAR(100),
+    lastModified datetime default sysdate);
+
+    INSERT INTO "public"."monthly_parent_report_logs"
+    (SELECT category,upid,class,report_status,month
+    FROM "public"."monthly_parent_report_logs_stg");
+     
+    DROP TABLE IF EXISTS monthly_parent_report_logs_stg;
+
+    commit;
+    ]
+(Background on this error at: http://sqlalche.me/e/2j85)
+2020-08-04 16:29:11 INFO 63: month  July
+2020-08-04 16:29:11 INFO 86: {}
+2020-08-04 16:29:12 INFO 141: no_usage b2b2c students 421
+2020-08-04 16:29:12 INFO 142: not_done b2b2c students 0
+2020-08-04 16:29:12 INFO 143: done b2b2c students 1628
+2020-08-04 16:29:12 INFO 141: no_usage b2b students 56513
+2020-08-04 16:29:12 INFO 142: not_done b2b students 0
+2020-08-04 16:29:12 INFO 143: done b2b students 46754
+2020-08-04 16:29:13 INFO 141: no_usage b2c students 25390
+2020-08-04 16:29:13 INFO 142: not_done b2c students 0
+2020-08-04 16:29:13 INFO 143: done b2c students 2575
+2020-08-04 16:29:14 INFO 166: students 133281
+2020-08-04 16:29:15 INFO 182: The whole thing took: 0.08 min
+2020-08-04 16:29:20 ERROR 230: extraction failed due to 
+Traceback (most recent call last):
+  File "/home/anaconda3/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1244, in _execute_context
+    cursor, statement, parameters, context
+  File "/home/anaconda3/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 550, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.ProgrammingError: column "upid" is of type bigint but expression is of type character varying
+HINT:  You will need to rewrite or cast the expression.
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "mon_log_tosql.py", line 224, in <module>
+    engine.execute(sql)
+  File "/home/anaconda3/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 2166, in execute
+    return connection.execute(statement, *multiparams, **params)
+  File "/home/anaconda3/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 982, in execute
+    return self._execute_text(object_, multiparams, params)
+  File "/home/anaconda3/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1155, in _execute_text
+    parameters,
+  File "/home/anaconda3/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1248, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/home/anaconda3/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1466, in _handle_dbapi_exception
+    util.raise_from_cause(sqlalchemy_exception, exc_info)
+  File "/home/anaconda3/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 399, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/home/anaconda3/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 153, in reraise
+    raise value.with_traceback(tb)
+  File "/home/anaconda3/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1244, in _execute_context
+    cursor, statement, parameters, context
+  File "/home/anaconda3/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 550, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.ProgrammingError) column "upid" is of type bigint but expression is of type character varying
+HINT:  You will need to rewrite or cast the expression.
+
+[SQL: 
+
+    DROP TABLE IF EXISTS monthly_parent_report_logs_stg;
+
+    CREATE TABLE IF NOT EXISTS monthly_parent_report_logs_stg(
+    category VARCHAR(100),class VARCHAR(100),
+    report_status VARCHAR(100),upid VARCHAR(100),
+    month VARCHAR(100));
+
+
+    COPY  monthly_parent_report_logs_stg
+    FROM 's3://ei-marketingdata/parentReport_monthly_July/students.parquet'
+    IAM_ROLE 'arn:aws:iam::866998810058:role/myRedshiftRole'
+    Format as parquet;
+
+
+    CREATE TABLE IF NOT EXISTS monthly_parent_report_logs(
+    category VARCHAR(100),upid int8,class int4,
+    report_status VARCHAR(100),
+    month VARCHAR(100),
+    lastModified datetime default sysdate);
+
+    INSERT INTO "public"."monthly_parent_report_logs"
+    (SELECT category,upid,class,report_status,month
+    FROM "public"."monthly_parent_report_logs_stg");
+     
+    DROP TABLE IF EXISTS monthly_parent_report_logs_stg;
+
+    commit;
+    ]
+(Background on this error at: http://sqlalche.me/e/f405)
+2020-08-04 16:43:57 INFO 63: month  July
+2020-08-04 16:43:57 INFO 86: {}
+2020-08-04 16:43:57 INFO 141: no_usage b2b2c students 421
+2020-08-04 16:43:57 INFO 142: not_done b2b2c students 0
+2020-08-04 16:43:57 INFO 143: done b2b2c students 1628
+2020-08-04 16:43:58 INFO 141: no_usage b2b students 56513
+2020-08-04 16:43:58 INFO 142: not_done b2b students 0
+2020-08-04 16:43:58 INFO 143: done b2b students 46754
+2020-08-04 16:43:59 INFO 141: no_usage b2c students 25390
+2020-08-04 16:43:59 INFO 142: not_done b2c students 0
+2020-08-04 16:43:59 INFO 143: done b2c students 2575
+2020-08-04 16:44:00 INFO 166: students 133281
+2020-08-04 16:44:01 INFO 182: The whole thing took: 0.08 min
+2020-08-04 16:44:08 INFO 228: Table loading took : 0.12 min
+2020-09-05 09:50:19 INFO 341: month  August
+2020-09-05 09:50:21 INFO 390: ['i-02c9e10c15437ba27']
+2020-09-05 09:52:21 INFO 100: SELECT distinct A.MS_userID
+    FROM educatio_educat.common_user_details A, mapping.user_management_mapping B,
+    educatio_adepts.adepts_registrationDetailsLog C WHERE A.id=B.oldID AND A.userName=C.username
+    AND enddate>'2020-08-01' AND category='STUDENT' AND subCategory='School'
+    AND A.MS_userID not in (SELECT MS_userID from educatio_educat.common_user_details where startDate > '2020-08-31')
+    AND (A.childEmail is not null or A.additionalEmail is not null or A.contactno_cel is not null)
+2020-09-05 09:52:23 INFO 115: SELECT distinct MS_userID
+    FROM educatio_educat.common_user_details
+    WHERE enddate>='2020-08-01'
+    AND category='STUDENT'
+    AND subCategory='Individual'
+    AND MS_userID not in (SELECT MS_userID from educatio_educat.common_user_details where startDate > '2020-08-31')
+    AND (childEmail is not null or additionalEmail is not null or contactno_cel is not null)
+2020-09-05 09:52:24 INFO 128: SELECT distinct MS_userID
+    FROM educatio_educat.common_user_details
+    WHERE enddate>='2020-08-01'
+    AND category='STUDENT'
+    AND subCategory='School'
+    AND MS_userID not in (SELECT MS_userID from educatio_educat.common_user_details where startDate > '2020-08-31')
+    AND (childEmail is not null or additionalEmail is not null or contactno_cel is not null)
+2020-09-05 09:52:29 INFO 139: select oldupid as upid,childname,oldschoolcode,class,gender,monthly_correct_ques,monthly_login_days,monthly_total_ques,monthly_accuracy,monthly_usage_time from msm_usage_monthly where calendar_month ='8' 
+    and upid in (select upid from userdetails_dim where category='STUDENT'and enabled in (1,0) and enddate>= '2020-08-01' and (parentemail is not null or contactno_cel is not null or childemail is not null)
+    and upid not in (select upid from userdetails_dim where category='STUDENT' and startdate > '2020-08-31') ) 
+    
+2020-09-05 09:52:41 INFO 149: select oldupid as upid,class,contentid,contenttype,monthly_ques_attempts,progress_of_first_attempt,monthly_accuracy from msm_moduleprogress_monthly where calendar_month =8  
+    and upid in (select upid from userdetails_dim where category='STUDENT'and enabled in (1,0) and enddate>= '2020-08-01' and (parentemail is not null or contactno_cel is not null or childemail is not null)
+    and upid not in (select upid from userdetails_dim where category='STUDENT' and startdate > '2020-08-31') ) 
+    
+2020-09-05 09:52:47 ERROR 580: extraction failed due to 
+Traceback (most recent call last):
+  File "/home/anaconda3/lib/python3.7/site-packages/pandas/io/sql.py", line 1595, in execute
+    cur.execute(*args)
+psycopg2.ProgrammingError: syntax error at or near ")"
+LINE 1: ...tentid,contentname from msm_topic_flow where contentid in ()
+                                                                      ^
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "mon_extraction4.py", line 393, in <module>
+    split_and_save(no_of_instances)
+  File "mon_extraction4.py", line 204, in split_and_save
+    topic_name = get_topic_names(contentids)
+  File "mon_extraction4.py", line 166, in get_topic_names
+    topic_name_1 = pd.read_sql(query,redshift)
+  File "/home/anaconda3/lib/python3.7/site-packages/pandas/io/sql.py", line 410, in read_sql
+    chunksize=chunksize,
+  File "/home/anaconda3/lib/python3.7/site-packages/pandas/io/sql.py", line 1645, in read_query
+    cursor = self.execute(*args)
+  File "/home/anaconda3/lib/python3.7/site-packages/pandas/io/sql.py", line 1610, in execute
+    raise_with_traceback(ex)
+  File "/home/anaconda3/lib/python3.7/site-packages/pandas/compat/__init__.py", line 47, in raise_with_traceback
+    raise exc.with_traceback(traceback)
+  File "/home/anaconda3/lib/python3.7/site-packages/pandas/io/sql.py", line 1595, in execute
+    cur.execute(*args)
+pandas.io.sql.DatabaseError: Execution failed on sql 'select  contentid,contentname from msm_topic_flow where contentid in ()': syntax error at or near ")"
+LINE 1: ...tentid,contentname from msm_topic_flow where contentid in ()
+                                                                      ^
+
+2020-09-05 15:07:38 INFO 341: month  August
+2020-09-05 15:07:39 INFO 390: ['i-07b683131246160ad']
+2020-09-05 15:09:39 INFO 100: SELECT distinct A.MS_userID
+    FROM educatio_educat.common_user_details A, mapping.user_management_mapping B,
+    educatio_adepts.adepts_registrationDetailsLog C WHERE A.id=B.oldID AND A.userName=C.username
+    AND enddate>'2020-08-01' AND category='STUDENT' AND subCategory='School'
+    AND A.MS_userID not in (SELECT MS_userID from educatio_educat.common_user_details where startDate > '2020-08-31')
+    AND (A.childEmail is not null or A.additionalEmail is not null or A.contactno_cel is not null)
+2020-09-05 15:09:53 INFO 115: SELECT distinct MS_userID
+    FROM educatio_educat.common_user_details
+    WHERE enddate>='2020-08-01'
+    AND category='STUDENT'
+    AND subCategory='Individual'
+    AND MS_userID not in (SELECT MS_userID from educatio_educat.common_user_details where startDate > '2020-08-31')
+    AND (childEmail is not null or additionalEmail is not null or contactno_cel is not null)
+2020-09-05 15:09:57 INFO 128: SELECT distinct MS_userID
+    FROM educatio_educat.common_user_details
+    WHERE enddate>='2020-08-01'
+    AND category='STUDENT'
+    AND subCategory='School'
+    AND MS_userID not in (SELECT MS_userID from educatio_educat.common_user_details where startDate > '2020-08-31')
+    AND (childEmail is not null or additionalEmail is not null or contactno_cel is not null)
+2020-09-05 15:10:17 INFO 139: select oldupid as upid,childname,oldschoolcode,class,gender,monthly_correct_ques,monthly_login_days,monthly_total_ques,monthly_accuracy,monthly_usage_time from msm_usage_monthly where calendar_month ='8' 
+    and upid in (select upid from userdetails_dim where category='STUDENT'and enabled in (1,0) and enddate>= '2020-08-01' and (parentemail is not null or contactno_cel is not null or childemail is not null)
+    and upid not in (select upid from userdetails_dim where category='STUDENT' and startdate > '2020-08-31') ) 
+    
+2020-09-05 15:10:19 INFO 149: select oldupid as upid,class,contentid,contenttype,monthly_ques_attempts,progress_of_first_attempt,monthly_accuracy from msm_moduleprogress_monthly where calendar_month =8  
+    and upid in (select upid from userdetails_dim where category='STUDENT'and enabled in (1,0) and enddate>= '2020-08-01' and (parentemail is not null or contactno_cel is not null or childemail is not null)
+    and upid not in (select upid from userdetails_dim where category='STUDENT' and startdate > '2020-08-31') ) 
+    
+2020-09-05 15:10:31 INFO 159: select old_upid as upid,class,contentid,contentattemptnumber,mapped_ttid,accuracy from msm_moduleprogress_attemptid where ((startdate>='2020-08-01' and startdate <='2020-08-31') or (enddate>='2020-08-01' and enddate <='2020-08-31')) and  contenttype='concept'   
+    and upid in (select upid from userdetails_dim where category='STUDENT'and enabled in (1,0) and enddate>= '2020-08-01' and (parentemail is not null or contactno_cel is not null or childemail is not null)
+    and upid not in (select upid from userdetails_dim where category='STUDENT' and startdate > '2020-08-31') ) 
+    
+2020-09-05 15:10:55 INFO 237: Total students 85047
+2020-09-05 15:10:55 INFO 238: Distinct student and class count 85070
+2020-09-05 15:10:55 INFO 239: usage data length 85070
+2020-09-05 15:10:55 INFO 240: topics data length 161021
+2020-09-05 15:10:55 INFO 241: concepts data length 762375
+2020-09-05 15:10:55 INFO 243: b2b2c students 2593
+2020-09-05 15:10:55 INFO 244: b2c students 9220
+2020-09-05 15:10:55 INFO 245: b2b students 160000 
+2020-09-05 15:10:55 INFO 254: b2b2c distinct student and class count 2491
+2020-09-05 15:10:55 INFO 255: b2c distinct student and class count 9203
+2020-09-05 15:10:55 INFO 256: b2b distinct student and class count 73373 
+2020-09-05 15:10:55 INFO 258: no of splits 1
+2020-09-05 15:11:03 INFO 404: {'i-07b683131246160ad': 'ec2-3-7-251-127.ap-south-1.compute.amazonaws.com'}
+2020-09-05 17:46:40 INFO 468: no_usage b2b2c students 0
+2020-09-05 17:46:40 INFO 469: not_done b2b2c students 0
+2020-09-05 17:46:40 INFO 470: done b2b2c students 0
+2020-09-05 17:46:41 INFO 468: no_usage b2b students 0
+2020-09-05 17:46:41 INFO 469: not_done b2b students 0
+2020-09-05 17:46:41 INFO 470: done b2b students 0
+2020-09-05 17:46:41 INFO 468: no_usage b2c students 0
+2020-09-05 17:46:41 INFO 469: not_done b2c students 0
+2020-09-05 17:46:41 INFO 470: done b2c students 0
+2020-09-05 17:46:42 ERROR 580: extraction failed due to 
+Traceback (most recent call last):
+  File "mon_extraction4.py", line 489, in <module>
+    df4.drop('upid_class',axis=1, inplace=True)
+  File "/home/anaconda3/lib/python3.7/site-packages/pandas/core/frame.py", line 4117, in drop
+    errors=errors,
+  File "/home/anaconda3/lib/python3.7/site-packages/pandas/core/generic.py", line 3914, in drop
+    obj = obj._drop_axis(labels, axis, level=level, errors=errors)
+  File "/home/anaconda3/lib/python3.7/site-packages/pandas/core/generic.py", line 3946, in _drop_axis
+    new_axis = axis.drop(labels, errors=errors)
+  File "/home/anaconda3/lib/python3.7/site-packages/pandas/core/indexes/base.py", line 5340, in drop
+    raise KeyError("{} not found in axis".format(labels[mask]))
+KeyError: "['upid_class'] not found in axis"
+2020-09-05 17:52:35 INFO 341: month  August
+2020-09-05 17:52:36 INFO 390: ['i-0c071e8a49e87c936', 'i-0b0125e829391d33d', 'i-085d0913e7ca9fa95', 'i-06700cad5f0dc15a9']
+2020-09-05 17:54:36 INFO 100: SELECT distinct A.MS_userID
+    FROM educatio_educat.common_user_details A, mapping.user_management_mapping B,
+    educatio_adepts.adepts_registrationDetailsLog C WHERE A.id=B.oldID AND A.userName=C.username
+    AND enddate>'2020-08-01' AND category='STUDENT' AND subCategory='School'
+    AND A.MS_userID not in (SELECT MS_userID from educatio_educat.common_user_details where startDate > '2020-08-31')
+    AND (A.childEmail is not null or A.additionalEmail is not null or A.contactno_cel is not null)
+2020-09-05 17:54:49 INFO 115: SELECT distinct MS_userID
+    FROM educatio_educat.common_user_details
+    WHERE enddate>='2020-08-01'
+    AND category='STUDENT'
+    AND subCategory='Individual'
+    AND MS_userID not in (SELECT MS_userID from educatio_educat.common_user_details where startDate > '2020-08-31')
+    AND (childEmail is not null or additionalEmail is not null or contactno_cel is not null)
+2020-09-05 17:54:53 INFO 128: SELECT distinct MS_userID
+    FROM educatio_educat.common_user_details
+    WHERE enddate>='2020-08-01'
+    AND category='STUDENT'
+    AND subCategory='School'
+    AND MS_userID not in (SELECT MS_userID from educatio_educat.common_user_details where startDate > '2020-08-31')
+    AND (childEmail is not null or additionalEmail is not null or contactno_cel is not null)
+2020-09-05 17:55:12 INFO 139: select oldupid as upid,childname,oldschoolcode,class,gender,monthly_correct_ques,monthly_login_days,monthly_total_ques,monthly_accuracy,monthly_usage_time from msm_usage_monthly where calendar_month ='8' 
+    and upid in (select upid from userdetails_dim where category='STUDENT'and enabled in (1,0) and enddate>= '2020-08-01' and (parentemail is not null or contactno_cel is not null or childemail is not null)
+    and upid not in (select upid from userdetails_dim where category='STUDENT' and startdate > '2020-08-31') ) 
+    
+2020-09-05 17:55:14 INFO 149: select oldupid as upid,class,contentid,contenttype,monthly_ques_attempts,progress_of_first_attempt,monthly_accuracy from msm_moduleprogress_monthly where calendar_month =8  
+    and upid in (select upid from userdetails_dim where category='STUDENT'and enabled in (1,0) and enddate>= '2020-08-01' and (parentemail is not null or contactno_cel is not null or childemail is not null)
+    and upid not in (select upid from userdetails_dim where category='STUDENT' and startdate > '2020-08-31') ) 
+    
+2020-09-05 17:55:19 INFO 159: select old_upid as upid,class,contentid,contentattemptnumber,mapped_ttid,accuracy from msm_moduleprogress_attemptid where ((startdate>='2020-08-01' and startdate <='2020-08-31') or (enddate>='2020-08-01' and enddate <='2020-08-31')) and  contenttype='concept'   
+    and upid in (select upid from userdetails_dim where category='STUDENT'and enabled in (1,0) and enddate>= '2020-08-01' and (parentemail is not null or contactno_cel is not null or childemail is not null)
+    and upid not in (select upid from userdetails_dim where category='STUDENT' and startdate > '2020-08-31') ) 
+    
+2020-09-05 17:55:36 INFO 237: Total students 85047
+2020-09-05 17:55:36 INFO 238: Distinct student and class count 85070
+2020-09-05 17:55:36 INFO 239: usage data length 85070
+2020-09-05 17:55:36 INFO 240: topics data length 161021
+2020-09-05 17:55:36 INFO 241: concepts data length 762375
+2020-09-05 17:55:36 INFO 243: b2b2c students 2595
+2020-09-05 17:55:36 INFO 244: b2c students 9220
+2020-09-05 17:55:36 INFO 245: b2b students 159998 
+2020-09-05 17:55:36 INFO 254: b2b2c distinct student and class count 2492
+2020-09-05 17:55:36 INFO 255: b2c distinct student and class count 9203
+2020-09-05 17:55:36 INFO 256: b2b distinct student and class count 73372 
+2020-09-05 17:55:36 INFO 258: no of splits 4
+2020-09-05 17:55:44 INFO 404: {'i-0b0125e829391d33d': 'ec2-52-66-221-240.ap-south-1.compute.amazonaws.com', 'i-0c071e8a49e87c936': 'ec2-15-206-2-29.ap-south-1.compute.amazonaws.com', 'i-06700cad5f0dc15a9': 'ec2-3-7-74-148.ap-south-1.compute.amazonaws.com', 'i-085d0913e7ca9fa95': 'ec2-13-235-66-29.ap-south-1.compute.amazonaws.com'}
+2020-09-05 18:54:10 INFO 468: no_usage b2b2c students 0
+2020-09-05 18:54:10 INFO 469: not_done b2b2c students 0
+2020-09-05 18:54:10 INFO 470: done b2b2c students 0
+2020-09-05 18:54:11 INFO 468: no_usage b2b students 0
+2020-09-05 18:54:11 INFO 469: not_done b2b students 0
+2020-09-05 18:54:11 INFO 470: done b2b students 0
+2020-09-05 18:54:11 INFO 468: no_usage b2c students 0
+2020-09-05 18:54:11 INFO 469: not_done b2c students 0
+2020-09-05 18:54:11 INFO 470: done b2c students 0
+2020-09-05 18:54:12 ERROR 580: extraction failed due to 
+Traceback (most recent call last):
+  File "mon_extraction4.py", line 489, in <module>
+    df4.drop('upid_class',axis=1, inplace=True)
+  File "/home/anaconda3/lib/python3.7/site-packages/pandas/core/frame.py", line 4117, in drop
+    errors=errors,
+  File "/home/anaconda3/lib/python3.7/site-packages/pandas/core/generic.py", line 3914, in drop
+    obj = obj._drop_axis(labels, axis, level=level, errors=errors)
+  File "/home/anaconda3/lib/python3.7/site-packages/pandas/core/generic.py", line 3946, in _drop_axis
+    new_axis = axis.drop(labels, errors=errors)
+  File "/home/anaconda3/lib/python3.7/site-packages/pandas/core/indexes/base.py", line 5340, in drop
+    raise KeyError("{} not found in axis".format(labels[mask]))
+KeyError: "['upid_class'] not found in axis"
+2020-09-05 19:33:02 INFO 341: month  August
+2020-09-05 19:33:03 INFO 390: ['i-03d849491161c6e75', 'i-06c3796c60cfe94a9', 'i-01344c108267c05f3', 'i-0b394c6b5d1885a30']
+2020-09-05 19:35:03 INFO 100: SELECT distinct A.MS_userID
+    FROM educatio_educat.common_user_details A, mapping.user_management_mapping B,
+    educatio_adepts.adepts_registrationDetailsLog C WHERE A.id=B.oldID AND A.userName=C.username
+    AND enddate>'2020-08-01' AND category='STUDENT' AND subCategory='School'
+    AND A.MS_userID not in (SELECT MS_userID from educatio_educat.common_user_details where startDate > '2020-08-31')
+    AND (A.childEmail is not null or A.additionalEmail is not null or A.contactno_cel is not null)
+2020-09-05 19:35:17 INFO 115: SELECT distinct MS_userID
+    FROM educatio_educat.common_user_details
+    WHERE enddate>='2020-08-01'
+    AND category='STUDENT'
+    AND subCategory='Individual'
+    AND MS_userID not in (SELECT MS_userID from educatio_educat.common_user_details where startDate > '2020-08-31')
+    AND (childEmail is not null or additionalEmail is not null or contactno_cel is not null)
+2020-09-05 19:35:21 INFO 128: SELECT distinct MS_userID
+    FROM educatio_educat.common_user_details
+    WHERE enddate>='2020-08-01'
+    AND category='STUDENT'
+    AND subCategory='School'
+    AND MS_userID not in (SELECT MS_userID from educatio_educat.common_user_details where startDate > '2020-08-31')
+    AND (childEmail is not null or additionalEmail is not null or contactno_cel is not null)
+2020-09-05 19:35:41 INFO 139: select oldupid as upid,childname,oldschoolcode,class,gender,monthly_correct_ques,monthly_login_days,monthly_total_ques,monthly_accuracy,monthly_usage_time from msm_usage_monthly where calendar_month ='8' 
+    and upid in (select upid from userdetails_dim where category='STUDENT'and enabled in (1,0) and enddate>= '2020-08-01' and (parentemail is not null or contactno_cel is not null or childemail is not null)
+    and upid not in (select upid from userdetails_dim where category='STUDENT' and startdate > '2020-08-31') ) 
+    
+2020-09-05 19:35:42 INFO 149: select oldupid as upid,class,contentid,contenttype,monthly_ques_attempts,progress_of_first_attempt,monthly_accuracy from msm_moduleprogress_monthly where calendar_month =8  
+    and upid in (select upid from userdetails_dim where category='STUDENT'and enabled in (1,0) and enddate>= '2020-08-01' and (parentemail is not null or contactno_cel is not null or childemail is not null)
+    and upid not in (select upid from userdetails_dim where category='STUDENT' and startdate > '2020-08-31') ) 
+    
+2020-09-05 19:35:47 INFO 159: select old_upid as upid,class,contentid,contentattemptnumber,mapped_ttid,accuracy from msm_moduleprogress_attemptid where ((startdate>='2020-08-01' and startdate <='2020-08-31') or (enddate>='2020-08-01' and enddate <='2020-08-31')) and  contenttype='concept'   
+    and upid in (select upid from userdetails_dim where category='STUDENT'and enabled in (1,0) and enddate>= '2020-08-01' and (parentemail is not null or contactno_cel is not null or childemail is not null)
+    and upid not in (select upid from userdetails_dim where category='STUDENT' and startdate > '2020-08-31') ) 
+    
+2020-09-05 19:36:03 INFO 237: Total students 85047
+2020-09-05 19:36:03 INFO 238: Distinct student and class count 85070
+2020-09-05 19:36:03 INFO 239: usage data length 85070
+2020-09-05 19:36:03 INFO 240: topics data length 161021
+2020-09-05 19:36:03 INFO 241: concepts data length 762375
+2020-09-05 19:36:03 INFO 243: b2b2c students 2595
+2020-09-05 19:36:03 INFO 244: b2c students 9221
+2020-09-05 19:36:03 INFO 245: b2b students 159997 
+2020-09-05 19:36:03 INFO 254: b2b2c distinct student and class count 2492
+2020-09-05 19:36:03 INFO 255: b2c distinct student and class count 9203
+2020-09-05 19:36:03 INFO 256: b2b distinct student and class count 73371 
+2020-09-05 19:36:03 INFO 258: no of splits 4
+2020-09-05 19:36:11 INFO 404: {'i-0b394c6b5d1885a30': 'ec2-15-206-183-31.ap-south-1.compute.amazonaws.com', 'i-06c3796c60cfe94a9': 'ec2-3-6-116-91.ap-south-1.compute.amazonaws.com', 'i-03d849491161c6e75': 'ec2-15-207-104-0.ap-south-1.compute.amazonaws.com', 'i-01344c108267c05f3': 'ec2-3-6-43-185.ap-south-1.compute.amazonaws.com'}
+2020-09-05 19:36:18 INFO 468: no_usage b2b2c students 0
+2020-09-05 19:36:18 INFO 469: not_done b2b2c students 0
+2020-09-05 19:36:18 INFO 470: done b2b2c students 0
+2020-09-05 19:36:18 INFO 468: no_usage b2b students 0
+2020-09-05 19:36:18 INFO 469: not_done b2b students 0
+2020-09-05 19:36:18 INFO 470: done b2b students 0
+2020-09-05 19:36:19 INFO 468: no_usage b2c students 0
+2020-09-05 19:36:19 INFO 469: not_done b2c students 0
+2020-09-05 19:36:19 INFO 470: done b2c students 0
+2020-09-05 19:36:19 ERROR 580: extraction failed due to 
+Traceback (most recent call last):
+  File "mon_extraction4.py", line 489, in <module>
+    df4.drop('upid_class',axis=1, inplace=True)
+  File "/home/anaconda3/lib/python3.7/site-packages/pandas/core/frame.py", line 4117, in drop
+    errors=errors,
+  File "/home/anaconda3/lib/python3.7/site-packages/pandas/core/generic.py", line 3914, in drop
+    obj = obj._drop_axis(labels, axis, level=level, errors=errors)
+  File "/home/anaconda3/lib/python3.7/site-packages/pandas/core/generic.py", line 3946, in _drop_axis
+    new_axis = axis.drop(labels, errors=errors)
+  File "/home/anaconda3/lib/python3.7/site-packages/pandas/core/indexes/base.py", line 5340, in drop
+    raise KeyError("{} not found in axis".format(labels[mask]))
+KeyError: "['upid_class'] not found in axis"
+2020-09-05 20:34:22 INFO 341: month  August
+2020-09-05 20:34:23 INFO 390: ['i-03e758748d7ccf178', 'i-0464963956022ca62', 'i-0924fe366ce897a3c', 'i-0c4a97a20b9f3193e']
+2020-09-05 20:36:23 INFO 100: SELECT distinct A.MS_userID
+    FROM educatio_educat.common_user_details A, mapping.user_management_mapping B,
+    educatio_adepts.adepts_registrationDetailsLog C WHERE A.id=B.oldID AND A.userName=C.username
+    AND enddate>'2020-08-01' AND category='STUDENT' AND subCategory='School'
+    AND A.MS_userID not in (SELECT MS_userID from educatio_educat.common_user_details where startDate > '2020-08-31')
+    AND (A.childEmail is not null or A.additionalEmail is not null or A.contactno_cel is not null)
+2020-09-05 20:36:37 INFO 115: SELECT distinct MS_userID
+    FROM educatio_educat.common_user_details
+    WHERE enddate>='2020-08-01'
+    AND category='STUDENT'
+    AND subCategory='Individual'
+    AND MS_userID not in (SELECT MS_userID from educatio_educat.common_user_details where startDate > '2020-08-31')
+    AND (childEmail is not null or additionalEmail is not null or contactno_cel is not null)
+2020-09-05 20:36:41 INFO 128: SELECT distinct MS_userID
+    FROM educatio_educat.common_user_details
+    WHERE enddate>='2020-08-01'
+    AND category='STUDENT'
+    AND subCategory='School'
+    AND MS_userID not in (SELECT MS_userID from educatio_educat.common_user_details where startDate > '2020-08-31')
+    AND (childEmail is not null or additionalEmail is not null or contactno_cel is not null)
+2020-09-05 20:37:00 INFO 139: select oldupid as upid,childname,oldschoolcode,class,gender,monthly_correct_ques,monthly_login_days,monthly_total_ques,monthly_accuracy,monthly_usage_time from msm_usage_monthly where calendar_month ='8' 
+    and upid in (select upid from userdetails_dim where category='STUDENT'and enabled in (1,0) and enddate>= '2020-08-01' and (parentemail is not null or contactno_cel is not null or childemail is not null)
+    and upid not in (select upid from userdetails_dim where category='STUDENT' and startdate > '2020-08-31') ) 
+    
+2020-09-05 20:37:02 INFO 149: select oldupid as upid,class,contentid,contenttype,monthly_ques_attempts,progress_of_first_attempt,monthly_accuracy from msm_moduleprogress_monthly where calendar_month =8  
+    and upid in (select upid from userdetails_dim where category='STUDENT'and enabled in (1,0) and enddate>= '2020-08-01' and (parentemail is not null or contactno_cel is not null or childemail is not null)
+    and upid not in (select upid from userdetails_dim where category='STUDENT' and startdate > '2020-08-31') ) 
+    
+2020-09-05 20:37:07 INFO 159: select old_upid as upid,class,contentid,contentattemptnumber,mapped_ttid,accuracy from msm_moduleprogress_attemptid where ((startdate>='2020-08-01' and startdate <='2020-08-31') or (enddate>='2020-08-01' and enddate <='2020-08-31')) and  contenttype='concept'   
+    and upid in (select upid from userdetails_dim where category='STUDENT'and enabled in (1,0) and enddate>= '2020-08-01' and (parentemail is not null or contactno_cel is not null or childemail is not null)
+    and upid not in (select upid from userdetails_dim where category='STUDENT' and startdate > '2020-08-31') ) 
+    
+2020-09-05 20:37:23 INFO 237: Total students 85047
+2020-09-05 20:37:23 INFO 238: Distinct student and class count 85070
+2020-09-05 20:37:23 INFO 239: usage data length 85070
+2020-09-05 20:37:23 INFO 240: topics data length 161021
+2020-09-05 20:37:23 INFO 241: concepts data length 762375
+2020-09-05 20:37:23 INFO 243: b2b2c students 2595
+2020-09-05 20:37:23 INFO 244: b2c students 9221
+2020-09-05 20:37:23 INFO 245: b2b students 159997 
+2020-09-05 20:37:23 INFO 254: b2b2c distinct student and class count 2492
+2020-09-05 20:37:23 INFO 255: b2c distinct student and class count 9203
+2020-09-05 20:37:23 INFO 256: b2b distinct student and class count 73371 
+2020-09-05 20:37:23 INFO 258: no of splits 4
+2020-09-05 20:37:31 INFO 404: {'i-03e758748d7ccf178': 'ec2-52-66-222-161.ap-south-1.compute.amazonaws.com', 'i-0c4a97a20b9f3193e': 'ec2-15-207-104-112.ap-south-1.compute.amazonaws.com', 'i-0924fe366ce897a3c': 'ec2-3-7-250-6.ap-south-1.compute.amazonaws.com', 'i-0464963956022ca62': 'ec2-15-206-204-243.ap-south-1.compute.amazonaws.com'}
+2020-09-05 21:16:34 INFO 468: no_usage b2b2c students 504
+2020-09-05 21:16:34 INFO 469: not_done b2b2c students 0
+2020-09-05 21:16:34 INFO 470: done b2b2c students 1988
+2020-09-05 21:16:37 INFO 468: no_usage b2b students 36715
+2020-09-05 21:16:37 INFO 469: not_done b2b students 0
+2020-09-05 21:16:37 INFO 470: done b2b students 36656
+2020-09-05 21:16:39 INFO 468: no_usage b2c students 7397
+2020-09-05 21:16:39 INFO 469: not_done b2c students 0
+2020-09-05 21:16:39 INFO 470: done b2c students 1806
+2020-09-05 21:16:40 INFO 492: students 85066
+2020-09-05 21:16:41 INFO 508: The whole thing took: 42.32 min
+2020-09-05 21:16:44 INFO 73: Email sent!
+2020-09-05 21:16:58 INFO 578: Table loading took : 0.23 min
+2020-10-05 12:00:03 INFO 373: month  September
+2020-10-05 12:00:05 INFO 422: ['i-004b3f2076f5a96c3', 'i-05baf11d355216fed', 'i-0eb3e19cf3fef7d61', 'i-0c95259d96dfcd7e6']
+2020-10-05 12:02:05 INFO 104: SELECT distinct A.MS_userID
+    FROM educatio_educat.common_user_details A, mapping.user_management_mapping B,
+    educatio_adepts.adepts_registrationDetailsLog C WHERE A.id=B.oldID AND A.userName=C.username
+    AND enddate>'2020-09-01' AND category='STUDENT' AND subCategory='School'
+    AND A.MS_userID not in (SELECT MS_userID from educatio_educat.common_user_details where startDate > '2020-09-30')
+    AND (A.childEmail is not null or A.additionalEmail is not null or A.contactno_cel is not null)
+2020-10-05 12:02:17 INFO 119: SELECT distinct MS_userID
+    FROM educatio_educat.common_user_details
+    WHERE enddate>='2020-09-01'
+    AND category='STUDENT'
+    AND subCategory='Individual'
+    AND MS_userID not in (SELECT MS_userID from educatio_educat.common_user_details where startDate > '2020-09-30')
+    AND (childEmail is not null or additionalEmail is not null or contactno_cel is not null)
+2020-10-05 12:02:21 INFO 132: SELECT distinct MS_userID
+    FROM educatio_educat.common_user_details
+    WHERE enddate>='2020-09-01'
+    AND category='STUDENT'
+    AND subCategory='School'
+    AND MS_userID not in (SELECT MS_userID from educatio_educat.common_user_details where startDate > '2020-09-30')
+    AND (childEmail is not null or additionalEmail is not null or contactno_cel is not null)
+2020-10-05 12:02:43 INFO 202: b2b 128591
+2020-10-05 12:02:43 INFO 203: b2c 4994
+2020-10-05 12:02:43 INFO 204: b2b2c 2882
+2020-10-05 12:02:43 INFO 212: b2b 128365
+2020-10-05 12:02:43 INFO 213: b2c 5234
+2020-10-05 12:02:43 INFO 214: b2b2c 2882
+2020-10-05 12:02:43 INFO 143: select oldupid as upid,childname,oldschoolcode,class,gender,monthly_correct_ques,monthly_login_days,monthly_total_ques,monthly_accuracy,monthly_usage_time from msm_usage_monthly where calendar_month ='9' 
+    and upid in (select upid from userdetails_dim where category='STUDENT'and enabled in (1,0) and enddate>= '2020-09-01' and (parentemail is not null or contactno_cel is not null or childemail is not null)
+    and upid not in (select upid from userdetails_dim where category='STUDENT' and startdate > '2020-09-30') ) 
+    
+2020-10-05 12:09:47 INFO 153: select oldupid as upid,class,contentid,contenttype,monthly_ques_attempts,progress_of_first_attempt,monthly_accuracy from msm_moduleprogress_monthly where calendar_month =9  
+    and upid in (select upid from userdetails_dim where category='STUDENT'and enabled in (1,0) and enddate>= '2020-09-01' and (parentemail is not null or contactno_cel is not null or childemail is not null)
+    and upid not in (select upid from userdetails_dim where category='STUDENT' and startdate > '2020-09-30') ) 
+    
+2020-10-05 12:10:00 ERROR 613: extraction failed due to 
+Traceback (most recent call last):
+  File "/home/anaconda3/lib/python3.7/site-packages/pandas/io/sql.py", line 1595, in execute
+    cur.execute(*args)
+psycopg2.ProgrammingError: syntax error at or near ")"
+LINE 1: ...end as contentname from msm_topic_flow where contentid in ()
+                                                                      ^
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ei_datascience/Parent_reports/mon_extraction4.py", line 425, in <module>
+    split_and_save(no_of_instances)
+  File "/home/ei_datascience/Parent_reports/mon_extraction4.py", line 234, in split_and_save
+    topic_name_1 = get_topic_names(contentids)
+  File "/home/ei_datascience/Parent_reports/mon_extraction4.py", line 170, in get_topic_names
+    topic_name_1 = pd.read_sql(query,redshift)
+  File "/home/anaconda3/lib/python3.7/site-packages/pandas/io/sql.py", line 410, in read_sql
+    chunksize=chunksize,
+  File "/home/anaconda3/lib/python3.7/site-packages/pandas/io/sql.py", line 1645, in read_query
+    cursor = self.execute(*args)
+  File "/home/anaconda3/lib/python3.7/site-packages/pandas/io/sql.py", line 1610, in execute
+    raise_with_traceback(ex)
+  File "/home/anaconda3/lib/python3.7/site-packages/pandas/compat/__init__.py", line 47, in raise_with_traceback
+    raise exc.with_traceback(traceback)
+  File "/home/anaconda3/lib/python3.7/site-packages/pandas/io/sql.py", line 1595, in execute
+    cur.execute(*args)
+pandas.io.sql.DatabaseError: Execution failed on sql 'select contentid,case when type='worksheet' then case when length('Work Sheet - '||contentname)>90 then left('Work Sheet - '||contentname,86)||'...' else 'Work Sheet - '||contentname end else contentname end as contentname from msm_topic_flow where contentid in ()': syntax error at or near ")"
+LINE 1: ...end as contentname from msm_topic_flow where contentid in ()
+                                                                      ^
+
+2020-10-05 17:30:33 INFO 373: month  September
+2020-10-05 17:30:34 INFO 422: ['i-022879630d6ee9a37', 'i-0b9b7074ff9d8b0ca', 'i-0212da676eaa15bd0', 'i-0de9f42bc86e35d35']
+2020-10-05 17:34:04 INFO 373: month  September
+2020-10-05 17:34:05 INFO 422: ['i-0c1ce18cfc2de436c', 'i-042fad824c5f9ab37', 'i-0779b1cb2987de0cf', 'i-00623127686c3e644']
+2020-10-05 17:36:06 INFO 104: SELECT distinct A.MS_userID
+    FROM educatio_educat.common_user_details A, mapping.user_management_mapping B,
+    educatio_adepts.adepts_registrationDetailsLog C WHERE A.id=B.oldID AND A.userName=C.username
+    AND enddate>'2020-09-01' AND category='STUDENT' AND subCategory='School'
+    AND A.MS_userID not in (SELECT MS_userID from educatio_educat.common_user_details where startDate > '2020-09-30')
+    AND (A.childEmail is not null or A.additionalEmail is not null or A.contactno_cel is not null)
+2020-10-05 17:36:19 INFO 119: SELECT distinct MS_userID
+    FROM educatio_educat.common_user_details
+    WHERE enddate>='2020-09-01'
+    AND category='STUDENT'
+    AND subCategory='Individual'
+    AND MS_userID not in (SELECT MS_userID from educatio_educat.common_user_details where startDate > '2020-09-30')
+    AND (childEmail is not null or additionalEmail is not null or contactno_cel is not null)
+2020-10-05 17:36:22 INFO 132: SELECT distinct MS_userID
+    FROM educatio_educat.common_user_details
+    WHERE enddate>='2020-09-01'
+    AND category='STUDENT'
+    AND subCategory='School'
+    AND MS_userID not in (SELECT MS_userID from educatio_educat.common_user_details where startDate > '2020-09-30')
+    AND (childEmail is not null or additionalEmail is not null or contactno_cel is not null)
+2020-10-05 17:36:42 INFO 202: b2b 128594
+2020-10-05 17:36:42 INFO 203: b2c 4994
+2020-10-05 17:36:42 INFO 204: b2b2c 2884
+2020-10-05 17:36:42 INFO 212: b2b 128369
+2020-10-05 17:36:42 INFO 213: b2c 5234
+2020-10-05 17:36:42 INFO 214: b2b2c 2884
+2020-10-05 17:36:43 INFO 143: select oldupid as upid,childname,oldschoolcode,class,gender,monthly_correct_ques,monthly_login_days,monthly_total_ques,monthly_accuracy,monthly_usage_time from msm_usage_monthly where calendar_month ='9' 
+    and upid in (select upid from userdetails_dim where category='STUDENT'and enabled in (1,0) and enddate>= '2020-09-01' and (parentemail is not null or contactno_cel is not null or childemail is not null)
+    and upid not in (select upid from userdetails_dim where category='STUDENT' and startdate > '2020-09-30') ) 
+    
+2020-10-05 17:36:50 INFO 153: select oldupid as upid,class,contentid,contenttype,monthly_ques_attempts,progress_of_first_attempt,monthly_accuracy from msm_moduleprogress_monthly where calendar_month =9  
+    and upid in (select upid from userdetails_dim where category='STUDENT'and enabled in (1,0) and enddate>= '2020-09-01' and (parentemail is not null or contactno_cel is not null or childemail is not null)
+    and upid not in (select upid from userdetails_dim where category='STUDENT' and startdate > '2020-09-30') ) 
+    
+2020-10-05 17:37:25 INFO 163: select old_upid as upid,class,contentid,contentattemptnumber,mapped_ttid,accuracy from msm_moduleprogress_attemptid where ((startdate>='2020-09-01' and startdate <='2020-09-30') or (enddate>='2020-09-01' and enddate <='2020-09-30')) and  contenttype='concept'   
+    and upid in (select upid from userdetails_dim where category='STUDENT'and enabled in (1,0) and enddate>= '2020-09-01' and (parentemail is not null or contactno_cel is not null or childemail is not null)
+    and upid not in (select upid from userdetails_dim where category='STUDENT' and startdate > '2020-09-30') ) 
+    
+2020-10-05 17:37:50 INFO 269: Total students 69643
+2020-10-05 17:37:50 INFO 270: Distinct student and class count 69661
+2020-10-05 17:37:50 INFO 271: usage data length 69661
+2020-10-05 17:37:50 INFO 272: topics data length 189624
+2020-10-05 17:37:50 INFO 273: concepts data length 453859
+2020-10-05 17:37:50 INFO 275: b2b2c students 2884
+2020-10-05 17:37:50 INFO 276: b2c students 5234
+2020-10-05 17:37:50 INFO 277: b2b students 128369 
+2020-10-05 17:37:50 INFO 286: b2b2c distinct student and class count 2757
+2020-10-05 17:37:50 INFO 287: b2c distinct student and class count 5207
+2020-10-05 17:37:50 INFO 288: b2b distinct student and class count 61694 
+2020-10-05 17:37:50 INFO 290: no of splits 4
+2020-10-05 17:37:56 INFO 436: {'i-0779b1cb2987de0cf': 'ec2-15-206-1-86.ap-south-1.compute.amazonaws.com', 'i-00623127686c3e644': 'ec2-65-0-56-42.ap-south-1.compute.amazonaws.com', 'i-0c1ce18cfc2de436c': 'ec2-15-206-1-61.ap-south-1.compute.amazonaws.com', 'i-042fad824c5f9ab37': 'ec2-52-66-229-154.ap-south-1.compute.amazonaws.com'}
+2020-10-05 18:03:39 INFO 500: no_usage b2b2c students 625
+2020-10-05 18:03:39 INFO 501: not_done b2b2c students 0
+2020-10-05 18:03:39 INFO 502: done b2b2c students 2132
+2020-10-05 18:03:40 INFO 500: no_usage b2b students 28478
+2020-10-05 18:03:40 INFO 501: not_done b2b students 0
+2020-10-05 18:03:40 INFO 502: done b2b students 33216
+2020-10-05 18:03:40 INFO 500: no_usage b2c students 3725
+2020-10-05 18:03:40 INFO 501: not_done b2c students 0
+2020-10-05 18:03:40 INFO 502: done b2c students 1482
+2020-10-05 18:03:41 INFO 524: students 69658
+2020-10-05 18:03:42 INFO 541: The whole thing took: 29.62 min
+2020-10-05 18:03:44 INFO 73: Email sent!
+2020-10-05 18:03:55 INFO 611: Table loading took : 0.18 min
