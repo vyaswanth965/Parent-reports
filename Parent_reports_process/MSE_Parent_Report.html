@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<!-- saved from url=(0062)http://27.109.14.76:808/html5/Guru/ParentReport/src/index.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+		
+	<title>Parent Report</title>	
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+	<link href="./Parent Report_files/style.css" rel="stylesheet" type="text/css">
+	<script src="./Parent Report_files/jquery-1.7.1.min.js.download"></script>
+	<script src="./Parent Report_files/jquery_ui.js.download"></script>
+	<script src="./Parent Report_files/script.js.download"></script>
+
+	<script>
+
+		$(function()
+		{
+			interactiveObj = new questionInteractive();
+			interactiveObj.init();
+
+		});
+	</script>  
+</head>
+<body data-gr-c-s-loaded="true">
+
+<div id="backgroundProp2">
+
+<div id="logoDiv">
+<!--<img id="mindsparkLogo" src="./Parent Report_files/Weekly Report for Parents_02.png">
+<img id="EILogo" src="./Parent Report_files/Weekly Report for Parents_03.png">!-->
+<img id="mindsparkLogo" src="./Parent Report_files/ms_english.png">
+<img id="EILogo" src="./Parent Report_files/ei_logo.png">
+</div>
+
+<div id="reportDiv" style="height:{{rpt_hgt}}">
+	<span id="report_name">{{child_name}}'s Performance Report</span><br>
+	<span id="report_date">For The Week ({{month_1}} {{day_1}} - {{month_2}} {{day_2}}, {{year}})</span><br>
+	<span id="report_date2">Grade : {{child_class}}</span>
+	<div id="attendence_usage"><span id="attendenace_span">Attendance And Usage <span style="font-size: 20px;">(in minutes)</span></span></div>
+
+	<div id="report_grpah" >
+		<div id="graph_info">
+
+		<img style="
+		width: 800px;
+		height: 230px;
+		left: 0px;
+		top: 265px;" src={{bar_chart}}>
+		</div>	
+		<!--<div id="report_message"><span class="absentTextInst"> No Login on this day</span><span class="absentTextSmaller">A</span><span class="absentTextInst" style="padding-right:300px; padding-left:5px;">  - - - - &nbsp; Minimum Recommended Usage 15 mins/day</span></div>!-->
+		<div id="report_message"><span class="absentTextInst2" >  <span style="color:grey;">- - - -</span> &nbsp; Minimum Recommended Usage 30 mins/day</span><span class="absentTextInst"> No Login on this day</span><img  style="width:35px;height:30px; padding-bottom:8px;" src="./Parent Report_files/absent2.png"></div>
+	</div>
+
+	<div id="attendence_usage"><span id="attendenace_span">Progress And Accuracy</span></div>
+
+	<div id="topic_info" style="height:{{tb_hgt}}">
+		<div id="topicHeader">
+			<img src="./Parent Report_files/Weekly Report for Parents_04.png">
+			<span class="topicText"> {{weekly_ques_attempts}} Questions Attempted</span>
+			<img style="position: relative;margin-left: 25px;" src="./Parent Report_files/Weekly Report for Parents_05.png">
+			<span class="topicText"> {{weekly_accuracy}}% Overall Accuracy</span>
+		</div>
+		<div id="topic_table">{{table}}</div>
+
+	</div>	
+
+	<div id="attendence_usage"><span id="attendenace_span">Recommendation</span></div>
+	<div id="recomndation_info">
+	   <!--<ul style="list-style-type: circle;">!-->
+		<span class="recon_text">{{usage_recom}} </span>
+		<span class="recon_text">{{acc_recom}} </span>
+
+	</div>	
+</div>
+
+
+<div id="footer_div">
+	<div id="top_left_div">
+		<div class="footerItemInfo"> <img src="./Parent Report_files/Weekly Report for Parents_06.png">
+			<img src="./Parent Report_files/Weekly Report for Parents_07.png">
+			<img src="./Parent Report_files/Weekly Report for Parents_08.png">
+			<img src="./Parent Report_files/Weekly Report for Parents_09.png">
+			<img src="./Parent Report_files/Weekly Report for Parents_10.png">
+		 </div>
+		 <div class="footerItemInfo"> <span class="footer_itemText">Educational Initiatives Pvt Ltd </span></div>
+		 <div class="footerItemInfo"> <span class="footer_itemText">  India   |   Africa  |  GCC  |   S.E Asia  |  U.S.A </span></div>
+	</div>
+	<div id="top_right_div">
+		<div class="footerRightInfo">
+			<img src="./Parent Report_files/Weekly Report for Parents_11.png">
+			<span id="whatsAppText"> For updates on our products through Whatsapp, <b>please scan the QR code.</b> </span>
+			<img style="margin-left: 240px;" src="./Parent Report_files/Weekly Report for Parents_12.png">
+		</div>
+	</div>
+
+
+</div>
+</div>
+
+	
+</body></html>

@@ -1,0 +1,42 @@
+
+
+function questionInteractive() 
+{	
+}
+questionInteractive.prototype.init = function() 
+{
+   var usageInfo = [0,4,0,10,12,10,20];
+
+   $('.weekdaysDiv').each(function(i, obj) {
+   	  var percentageDivArray = obj.getElementsByClassName('graph_bar_item');
+   	  if(percentageDivArray.length > 0 && i < usageInfo.length)
+   	  {
+   	  	 var indiIbj = percentageDivArray[0];
+   	  	 var heightOfDiv = indiIbj.clientHeight;
+
+   	  	 var val = usageInfo[i];
+   	  	 if(val == 0)
+   	  	 {
+   	  	 	var htmlContent = '<span class="absentText">A</span>';
+   	  	 	$(indiIbj).append(htmlContent);
+   	  	 }
+   	  	 else
+   	  	 {
+   	  	 	 var updatedHeight = parseFloat((val * heightOfDiv) / 20);
+   	  	 	 var scaleFactor = (parseFloat(updatedHeight) / parseFloat(heightOfDiv)).toFixed(2);
+   	  	 	 $(indiIbj).css({'transform':'scaleY('+scaleFactor+')'});
+
+   	  	 	 if(val > 15)
+   	  	 	 {
+   	  	 	 	$(indiIbj).css({'background-color':'rgb(62,170,149)'});
+   	  	 	 }
+   	  	 	 else
+   	  	 	 {
+   	  	 	 	$(indiIbj).css({'background-color':'rgb(255,211,29)'});
+   	  	 	 }
+   	  	 	 var htmlContent = '<span class="valText">'+val+'</span>';
+   	  	 	 $(obj).append(htmlContent);
+   	  	 }
+   	  }
+  });
+}
