@@ -5,12 +5,13 @@ Sample reports
 
 ![alt text](https://github.com/vyaswanth965/Parent-reports/blob/main/Parent_reports_process/reports/Screenshot_287.png)
 
-![alt text](https://github.com/vyaswanth965/Parent-reports/Parent_reports_process/reports/Screenshot_288.png)
+![alt text](https://github.com/vyaswanth965/Parent-reports/blob/main/Parent_reports_process/reports/Screenshot_288.png)
+![alt text](https://github.com/vyaswanth965/Parent-reports/blob/main/Parent_reports_process/reports/Screenshot_289.png)
+![alt text](https://github.com/vyaswanth965/Parent-reports/blob/main/Parent_reports_process/reports/Screenshot_290.png)
+![alt text](https://github.com/vyaswanth965/Parent-reports/blob/main/Parent_reports_process/reports/Screenshot_291.png)
+![alt text](https://github.com/vyaswanth965/Parent-reports/blob/main/Parent_reports_process/reports/Screenshot_292.png)
+![alt text](https://github.com/vyaswanth965/Parent-reports/blob/main/Parent_reports_process/reports/Screenshot_293.png)
 
-![alt text](https://github.com/vyaswanth965/Parent-reports/Parent_reports_process/reports/Screenshot_289.png)
-![alt text](https://github.com/vyaswanth965/Parent-reports/Parent_reports_process/reports/Screenshot_290.png)
-![alt text](https://github.com/vyaswanth965/Parent-reports/Parent_reports_process/reports/Screenshot_291.png)
-![alt text](https://github.com/vyaswanth965/Parent-reports/Parent_reports_process/reports/Screenshot_292.png)
-![alt text](https://github.com/vyaswanth965/Parent-reports/Parent_reports_process/reports/Screenshot_293.png)
+
 
 
