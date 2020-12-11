@@ -3,8 +3,7 @@ Technology: python, Multi processing, AWS redshift, AWS S3, HTML     Summary: Pr
 
 Sample reports
 
-![alt text](https://github.com/vyaswanth965/Parent-reports/Parent-reports/Parent_reports_process/reports/Screenshot_287.png)
-![alt text](https://github.com/vyaswanth965/Chatbot_appointmentScheduler/blob/main/appointmentScheduler/Screenshot%20from%202019-10-16%2013-37-59.png)
+![alt text](https://github.com/vyaswanth965/Parent-reports/Parent-reports/tree/main/Parent_reports_process/reports/Screenshot_287.png)
 
 ![alt text](https://github.com/vyaswanth965/Parent-reports/Parent_reports_process/reports/Screenshot_288.png)
 
